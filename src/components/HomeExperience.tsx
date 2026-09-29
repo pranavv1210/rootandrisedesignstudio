@@ -1,6 +1,11 @@
 "use client";
 import Link from "next/link";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, Plus } from "lucide-react";
 import { useState } from "react";
 import { projects, services, team, testimonials } from "@/content/site";
@@ -8,47 +13,670 @@ import PlanVisual from "./PlanVisual";
 import ProjectMedia from "./ProjectMedia";
 import SpatialImage from "./SpatialImage";
 
-const modes = ["Focus", "Collaborate", "Social", "Meeting", "Executive", "Hybrid"];
-const principles = [["People before plans", "Observe how people really move, work and connect."], ["Purpose before objects", "Build from the behaviour a space must support."], ["Experience after opening day", "Test every decision against an ordinary Monday."]];
-function In({ children, className = "" }: { children: React.ReactNode; className?: string }) { const reduce = useReducedMotion(); return <motion.div className={className} initial={reduce ? false : { opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-8%" }} transition={{ duration: .75, ease: [.16,1,.3,1] }}>{children}</motion.div>; }
+const modes = [
+  "Focus",
+  "Collaborate",
+  "Social",
+  "Meeting",
+  "Executive",
+  "Hybrid",
+];
+const principles = [
+  ["People before plans", "Observe how people really move, work and connect."],
+  ["Purpose before objects", "Build from the behaviour a space must support."],
+  [
+    "Experience after opening day",
+    "Test every decision against an ordinary Monday.",
+  ],
+];
+function In({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      className={className}
+      initial={reduce ? false : { opacity: 0, y: 34 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-8%" }}
+      transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function HomeExperience() {
-  const [mode, setMode] = useState(0); const [answers, setAnswers] = useState<number[]>([]);
-  const score = answers.reduce((a,b) => a + b, 0);
-  const { scrollYProgress } = useScroll(); const modelY=useTransform(scrollYProgress,[0,.14],[0,180]); const modelRotate=useTransform(scrollYProgress,[0,.14],[-6,8]); const heroOpacity=useTransform(scrollYProgress,[0,.12],[1,0]);
-  return <main>
-    <section className="hero" id="entry"><div className="hero-grid"/><motion.div className="hero-lines" initial="hidden" animate="show" variants={{show:{transition:{staggerChildren:.15,delayChildren:.2}}}}><motion.i variants={{hidden:{scaleX:0},show:{scaleX:1,transition:{duration:1.2,ease:[.16,1,.3,1]}}}}/><motion.i variants={{hidden:{scaleX:0},show:{scaleX:1,transition:{duration:1.2,ease:[.16,1,.3,1]}}}}/><motion.i variants={{hidden:{scaleY:0},show:{scaleY:1,transition:{duration:1.2,ease:[.16,1,.3,1]}}}}/><motion.i variants={{hidden:{scaleX:0},show:{scaleX:1,transition:{duration:1.2,ease:[.16,1,.3,1]}}}}/></motion.div><motion.div className="hero-copy" style={{opacity:heroOpacity}}><motion.span initial={{opacity:0}} animate={{opacity:1}} transition={{delay:.2}}>Root &amp; Rise / Design Studio</motion.span><motion.h1 initial={{clipPath:"inset(0 100% 0 0)"}} animate={{clipPath:"inset(0)"}} transition={{duration:1.1,ease:[.16,1,.3,1]}}><i>Designing</i><br/>beyond<br/>structures.</motion.h1><p>Spaces designed around people, purpose and possibility.</p><div><Link href="#selected-work">Explore our work <ArrowDown/></Link><Link href="/contact">Start a conversation <ArrowUpRight/></Link></div></motion.div><motion.div className="hero-model" style={{y:modelY,rotateZ:modelRotate}}><div className="model-floor"/><div className="model-wall wall-a"/><div className="model-wall wall-b"/><div className="model-block block-a"/><div className="model-block block-b"/><span>CONCEPT MODEL / 01</span></motion.div><div className="hero-foot"><span>RR / 001</span><strong>We design for Monday mornings.</strong><span>19.0760° N</span></div></section>
+  const [mode, setMode] = useState(0);
+  const [answers, setAnswers] = useState<number[]>([]);
+  const score = answers.reduce((a, b) => a + b, 0);
+  const { scrollYProgress } = useScroll();
+  const modelY = useTransform(scrollYProgress, [0, 0.14], [0, 180]);
+  const modelRotate = useTransform(scrollYProgress, [0, 0.14], [-6, 8]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
+  return (
+    <main>
+      <section className="hero" id="entry">
+        <div className="hero-grid" />
+        <motion.div
+          className="hero-lines"
+          initial="hidden"
+          animate="show"
+          variants={{
+            show: { transition: { staggerChildren: 0.15, delayChildren: 0.2 } },
+          }}
+        >
+          <motion.i
+            variants={{
+              hidden: { scaleX: 0 },
+              show: {
+                scaleX: 1,
+                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
+          />
+          <motion.i
+            variants={{
+              hidden: { scaleX: 0 },
+              show: {
+                scaleX: 1,
+                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
+          />
+          <motion.i
+            variants={{
+              hidden: { scaleY: 0 },
+              show: {
+                scaleY: 1,
+                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
+          />
+          <motion.i
+            variants={{
+              hidden: { scaleX: 0 },
+              show: {
+                scaleX: 1,
+                transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+              },
+            }}
+          />
+        </motion.div>
+        <motion.div className="hero-copy" style={{ opacity: heroOpacity }}>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Root &amp; Rise / Design Studio
+          </motion.span>
+          <motion.h1
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            animate={{ clipPath: "inset(0)" }}
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <i>Designing</i>
+            <br />
+            beyond
+            <br />
+            structures.
+          </motion.h1>
+          <p>Spaces designed around people, purpose and possibility.</p>
+          <div>
+            <Link href="#selected-work">
+              Explore our work <ArrowDown />
+            </Link>
+            <Link href="/contact">
+              Start a conversation <ArrowUpRight />
+            </Link>
+          </div>
+        </motion.div>
+        <motion.div
+          className="hero-model"
+          style={{ y: modelY, rotateZ: modelRotate }}
+        >
+          <div className="model-floor" />
+          <div className="model-wall wall-a" />
+          <div className="model-wall wall-b" />
+          <div className="model-block block-a" />
+          <div className="model-block block-b" />
+          <span>CONCEPT MODEL / 01</span>
+        </motion.div>
+        <div className="hero-foot">
+          <span>RR / 001</span>
+          <strong>We design for Monday mornings.</strong>
+          <span>19.0760° N</span>
+        </div>
+      </section>
 
-    <section className="monday"><span>Everyone designs for the opening day.</span><In><h2>We design for<br/><em>Monday mornings.</em></h2></In><div className="monday-marquee"><motion.div animate={{x:["0%","-50%"]}} transition={{duration:18,repeat:Infinity,ease:"linear"}}>{[0,1,2,3].map(n=><span key={n}>FOCUS <b>/</b> COLLABORATION <b>/</b> COMFORT <b>/</b> CULTURE <b>/</b> GROWTH <b>/</b></span>)}</motion.div></div><div className="monday-rhythm"><p>A workplace should work when the first person walks in on an ordinary Monday.</p></div></section>
+      <section className="monday">
+        <span>Everyone designs for the opening day.</span>
+        <In>
+          <h2>
+            We design for
+            <br />
+            <em>Monday mornings.</em>
+          </h2>
+        </In>
+        <div className="monday-marquee">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          >
+            {[0, 1, 2, 3].map((n) => (
+              <span key={n}>
+                FOCUS <b>/</b> COLLABORATION <b>/</b> COMFORT <b>/</b> CULTURE{" "}
+                <b>/</b> GROWTH <b>/</b>
+              </span>
+            ))}
+          </motion.div>
+        </div>
+        <div className="monday-rhythm">
+          <p>
+            A workplace should work when the first person walks in on an
+            ordinary Monday.
+          </p>
+        </div>
+      </section>
 
-    <section className="beyond wrap"><div className="section-mark"><span>Foundation</span><b>01 / Philosophy</b></div><In><h2>People don’t experience floor plans.<br/><em>They experience spaces.</em></h2></In><div className="beyond-columns"><p>We listen for the human signals beneath the brief: the movement, culture, friction and possibility that a drawing alone cannot show.</p><p>Then we give those signals a spatial form—clear enough to work, warm enough to belong, and flexible enough to keep growing.</p></div></section>
+      <section className="beyond wrap">
+        <div className="section-mark">
+          <span>Foundation</span>
+          <b>01 / Philosophy</b>
+        </div>
+        <In>
+          <h2>
+            People don’t experience floor plans.
+            <br />
+            <em>They experience spaces.</em>
+          </h2>
+        </In>
+        <div className="beyond-columns">
+          <p>
+            We listen for the human signals beneath the brief: the movement,
+            culture, friction and possibility that a drawing alone cannot show.
+          </p>
+          <p>
+            Then we give those signals a spatial form—clear enough to work, warm
+            enough to belong, and flexible enough to keep growing.
+          </p>
+        </div>
+      </section>
 
-    <section className="root-rise"><div className="root-panel"><span>ROOT / 01</span><h2>What we<br/>understand.</h2><p>Years of residential and lifestyle design taught us to notice how people live with a space after the photographs are taken.</p></div><div className="rise-panel"><span>RISE / 02</span><h2>Where we’re<br/>going.</h2><p>That human understanding now rises into workplaces designed for how teams focus, collaborate and grow.</p></div><div className="root-rise-line"><i/></div></section>
+      <section className="root-rise">
+        <div className="root-panel">
+          <span>ROOT / 01</span>
+          <h2>
+            What we
+            <br />
+            understand.
+          </h2>
+          <p>
+            Years of residential and lifestyle design taught us to notice how
+            people live with a space after the photographs are taken.
+          </p>
+        </div>
+        <div className="rise-panel">
+          <span>RISE / 02</span>
+          <h2>
+            Where we’re
+            <br />
+            going.
+          </h2>
+          <p>
+            That human understanding now rises into workplaces designed for how
+            teams focus, collaborate and grow.
+          </p>
+        </div>
+        <div className="root-rise-line">
+          <i />
+        </div>
+      </section>
 
-    <section className="modes wrap"><header><div className="section-mark"><span>Function</span><b>02 / What we design</b></div><h2>We don’t just design rooms.<br/><em>We design how spaces work.</em></h2></header><div className="mode-stage"><div className={`mode-scene mode-${mode}`}><PlanVisual index={mode}/><SpatialImage key={modes[mode]} src={`/spaces/modes/${modes[mode].toLowerCase()}.webp`} fallbackSrc={`/spaces/modes/${modes[mode].toLowerCase()}.png`} alt={`${modes[mode]} workplace environment`}/><span className="mode-time">{["09:10","11:30","13:05","15:20","16:40","FLEX"][mode]} / {modes[mode].toUpperCase()}</span></div><div className="mode-list">{modes.map((x,i) => <button key={x} onClick={() => setMode(i)} className={mode === i ? "active" : ""}><span>0{i+1}</span>{x}<Plus/></button>)}</div></div><p className="capabilities">Workplaces / Corporate offices / Startup offices / Headquarters / Collaboration spaces / Meeting environments / Executive spaces / Creative studios / Experience centers / Flexible workplaces / Hospitality-inspired workplaces / Future-ready environments</p></section>
+      <section className="modes wrap">
+        <header>
+          <div className="section-mark">
+            <span>Function</span>
+            <b>02 / What we design</b>
+          </div>
+          <h2>
+            We don’t just design rooms.
+            <br />
+            <em>We design how spaces work.</em>
+          </h2>
+        </header>
+        <div className="mode-stage">
+          <div className={`mode-scene mode-${mode}`}>
+            <PlanVisual index={mode} />
+            <SpatialImage
+              key={modes[mode]}
+              src={`/spaces/modes/${modes[mode].toLowerCase()}.webp`}
+              fallbackSrc={`/spaces/modes/${modes[mode].toLowerCase()}.png`}
+              alt={`${modes[mode]} workplace environment`}
+            />
+            <span className="mode-time">
+              {["09:10", "11:30", "13:05", "15:20", "16:40", "FLEX"][mode]} /{" "}
+              {modes[mode].toUpperCase()}
+            </span>
+          </div>
+          <div className="mode-list">
+            {modes.map((x, i) => (
+              <button
+                key={x}
+                onClick={() => setMode(i)}
+                className={mode === i ? "active" : ""}
+              >
+                <span>0{i + 1}</span>
+                {x}
+                <Plus />
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="capabilities">
+          Workplaces / Corporate offices / Startup offices / Headquarters /
+          Collaboration spaces / Meeting environments / Executive spaces /
+          Creative studios / Experience centers / Flexible workplaces /
+          Hospitality-inspired workplaces / Future-ready environments
+        </p>
+      </section>
 
-    <section className="homes-work"><div className="homes"><span>Home</span><SpatialImage src="/spaces/transformation/home.webp" fallbackSrc="/spaces/transformation/home.png" alt="Warm residential living environment"/><div className="home-icon"><i/><i/><i/></div><p>Living room<br/>Dining table<br/>Study<br/>Private room</p></div><div className="transform-arrow"><ArrowRight/><small>Human understanding</small></div><div className="workplace"><span>Workplace</span><SpatialImage src="/spaces/transformation/workplace.webp" fallbackSrc="/spaces/transformation/workplace.png" alt="Human-centred workplace environment"/><div className="office-icon"><i/><i/><i/><i/></div><p>Social lounge<br/>Collaboration table<br/>Focus zone<br/>Meeting room</p></div><footer><h2>The context changes.<br/><em>The understanding of people remains.</em></h2></footer></section>
+      <section className="homes-work">
+        <div className="homes">
+          <span>Home</span>
+          <SpatialImage
+            src="/spaces/transformation/home.webp"
+            fallbackSrc="/spaces/transformation/home.png"
+            alt="Warm residential living environment"
+          />
+          <div className="home-icon">
+            <i />
+            <i />
+            <i />
+          </div>
+          <p>
+            Living room
+            <br />
+            Dining table
+            <br />
+            Study
+            <br />
+            Private room
+          </p>
+        </div>
+        <div className="transform-arrow">
+          <ArrowRight />
+          <small>Human understanding</small>
+        </div>
+        <div className="workplace">
+          <span>Workplace</span>
+          <SpatialImage
+            src="/spaces/transformation/workplace.webp"
+            fallbackSrc="/spaces/transformation/workplace.png"
+            alt="Human-centred workplace environment"
+          />
+          <div className="office-icon">
+            <i />
+            <i />
+            <i />
+            <i />
+          </div>
+          <p>
+            Social lounge
+            <br />
+            Collaboration table
+            <br />
+            Focus zone
+            <br />
+            Meeting room
+          </p>
+        </div>
+        <footer>
+          <h2>
+            The context changes.
+            <br />
+            <em>The understanding of people remains.</em>
+          </h2>
+        </footer>
+      </section>
 
-    <section className="projects wrap" id="selected-work"><header><div className="section-mark"><span>Gallery</span><b>03 / Selected work</b></div><h2>Six chapters.<br/><em>One human lens.</em></h2></header><div className="project-list">{projects.map((p,i) => <motion.div key={p.slug} className="project-wrap" initial={{clipPath:"inset(0 0 100% 0)"}} whileInView={{clipPath:"inset(0)"}} viewport={{once:true,margin:"-10%"}} transition={{duration:1,ease:[.16,1,.3,1]}}><Link href={`/work/${p.slug}`} className="project"><ProjectMedia project={p} kind="hero"/><div><span>0{i+1}</span><small>{p.type} / {p.place}</small><b>{p.status}</b></div><h3>{p.title}</h3><p>{p.statement}</p><i>Enter project <ArrowUpRight/></i></Link></motion.div>)}</div></section>
+      <section className="projects wrap" id="selected-work">
+        <header>
+          <div className="section-mark">
+            <span>Gallery</span>
+            <b>03 / Selected work</b>
+          </div>
+          <h2>
+            Six chapters.
+            <br />
+            <em>One human lens.</em>
+          </h2>
+        </header>
+        <div className="project-list">
+          {projects.map((p, i) => (
+            <motion.div
+              key={p.slug}
+              className="project-wrap"
+            >
+              <Link href={`/work/${p.slug}`} className="project">
+                <ProjectMedia project={p} kind="hero" />
+                <div>
+                  <span>0{i + 1}</span>
+                  <small>
+                    {p.type} / {p.place}
+                  </small>
+                  <b>{p.status}</b>
+                </div>
+                <h3>{p.title}</h3>
+                <p>{p.statement}</p>
+                <i>
+                  Enter project <ArrowUpRight />
+                </i>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-    <section className="workplace-films"><div className="film-panel"><ProjectMedia project={projects[4]} kind="poster" video/><div><span>Workplace film / 01</span><h2>The Collaborative HQ</h2><Link href="/work/collaborative-hq">Enter the project <ArrowRight/></Link></div></div><div className="film-panel"><ProjectMedia project={projects[5]} kind="poster" video/><div><span>Workplace film / 02</span><h2>The Innovation Campus</h2><Link href="/work/innovation-campus">Enter the project <ArrowRight/></Link></div></div></section>
+      <section className="workplace-films">
+        <div className="film-panel">
+          <ProjectMedia project={projects[4]} kind="poster" video />
+          <div>
+            <span>Workplace film / 01</span>
+            <h2>The Collaborative HQ</h2>
+            <Link href="/work/collaborative-hq">
+              Enter the project <ArrowRight />
+            </Link>
+          </div>
+        </div>
+        <div className="film-panel">
+          <ProjectMedia project={projects[5]} kind="poster" video />
+          <div>
+            <span>Workplace film / 02</span>
+            <h2>The Innovation Campus</h2>
+            <Link href="/work/innovation-campus">
+              Enter the project <ArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-    <section className="intelligence"><div className="intelligence-copy"><span>Design intelligence / 04</span><h2>Make the invisible<br/><em>legible.</em></h2><p>We turn behaviour, culture and business needs into design decisions that can be seen, tested and improved.</p></div><div className="signal-map">{["Movement", "Focus", "Exchange", "Belonging", "Adaptability"].map((x,i) => <div key={x}><span>{x}</span><i style={{ width: `${46 + i * 11}%` }}/><b>{String(62 + i * 7).padStart(2,"0")}</b></div>)}</div></section>
+      <section className="intelligence">
+        <div className="intelligence-copy">
+          <span>Design intelligence / 04</span>
+          <h2>
+            Make the invisible
+            <br />
+            <em>legible.</em>
+          </h2>
+          <p>
+            We turn behaviour, culture and business needs into design decisions
+            that can be seen, tested and improved.
+          </p>
+        </div>
+        <div className="signal-map">
+          {["Movement", "Focus", "Exchange", "Belonging", "Adaptability"].map(
+            (x, i) => (
+              <div key={x}>
+                <span>{x}</span>
+                <i style={{ width: `${46 + i * 11}%` }} />
+                <b>{String(62 + i * 7).padStart(2, "0")}</b>
+              </div>
+            ),
+          )}
+        </div>
+      </section>
 
-    <section className="test wrap"><header><div className="section-mark"><span>Assessment</span><b>05 / Monday morning test</b></div><h2>Would your space work<br/><em>on an ordinary Monday?</em></h2></header><div className="test-body"><div className="questions">{["Can people find focus when they need it?", "Does collaboration happen without disrupting everyone?", "Can the space adapt as teams change?"].map((q,qi) => <fieldset key={q}><legend>{q}</legend>{[0,1,2].map(v => <button className={answers[qi] === v ? "active" : ""} onClick={() => setAnswers(a => { const n=[...a]; n[qi]=v; return n; })} key={v}>{["Not yet", "Sometimes", "Yes"][v]}{answers[qi] === v && <Check/>}</button>)}</fieldset>)}</div><div className="score"><span>Your spatial signal</span><strong>{answers.length < 3 ? "—" : `${score + 3}/9`}</strong><p>{answers.length < 3 ? "Answer three quick questions to reveal a starting point." : score < 3 ? "Your workplace has clear opportunities for a more human rhythm." : "A strong foundation. The next step is making performance consistent."}</p><Link href="/contact">Discuss your space <ArrowRight/></Link></div></div></section>
+      <section className="test wrap">
+        <header>
+          <div className="section-mark">
+            <span>Assessment</span>
+            <b>05 / Monday morning test</b>
+          </div>
+          <h2>
+            Would your space work
+            <br />
+            <em>on an ordinary Monday?</em>
+          </h2>
+        </header>
+        <div className="test-body">
+          <div className="questions">
+            {[
+              "Can people find focus when they need it?",
+              "Does collaboration happen without disrupting everyone?",
+              "Can the space adapt as teams change?",
+            ].map((q, qi) => (
+              <fieldset key={q}>
+                <legend>{q}</legend>
+                {[0, 1, 2].map((v) => (
+                  <button
+                    className={answers[qi] === v ? "active" : ""}
+                    onClick={() =>
+                      setAnswers((a) => {
+                        const n = [...a];
+                        n[qi] = v;
+                        return n;
+                      })
+                    }
+                    key={v}
+                  >
+                    {["Not yet", "Sometimes", "Yes"][v]}
+                    {answers[qi] === v && <Check />}
+                  </button>
+                ))}
+              </fieldset>
+            ))}
+          </div>
+          <div className="score">
+            <span>Your spatial signal</span>
+            <strong>{answers.length < 3 ? "—" : `${score + 3}/9`}</strong>
+            <p>
+              {answers.length < 3
+                ? "Answer three quick questions to reveal a starting point."
+                : score < 3
+                  ? "Your workplace has clear opportunities for a more human rhythm."
+                  : "A strong foundation. The next step is making performance consistent."}
+            </p>
+            <Link href="/contact">
+              Discuss your space <ArrowRight />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-    <section className="service-section"><div className="wrap"><header><div className="section-mark light"><span>Function</span><b>06 / Services</b></div><h2>From listening<br/><em>to lived experience.</em></h2></header><div className="services">{services.map(([title,body],i) => <div key={title}><span>0{i+1}</span><h3>{title}</h3><p>{body}</p><ArrowUpRight/></div>)}</div></div></section>
+      <section className="service-section">
+        <div className="wrap">
+          <header>
+            <div className="section-mark light">
+              <span>Function</span>
+              <b>06 / Services</b>
+            </div>
+            <h2>
+              From listening
+              <br />
+              <em>to lived experience.</em>
+            </h2>
+          </header>
+          <div className="services">
+            {services.map(([title, body], i) => (
+              <div key={title}>
+                <span>0{i + 1}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+                <ArrowUpRight />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section className="principles wrap"><header><div className="section-mark"><span>Structure</span><b>07 / Principles</b></div><h2>Three things<br/>we protect.</h2></header>{principles.map(([a,b],i) => <In className="principle" key={a}><span>0{i+1}</span><h3>{a}</h3><p>{b}</p></In>)}</section>
+      <section className="principles wrap">
+        <header>
+          <div className="section-mark">
+            <span>Structure</span>
+            <b>07 / Principles</b>
+          </div>
+          <h2>
+            Three things
+            <br />
+            we protect.
+          </h2>
+        </header>
+        {principles.map(([a, b], i) => (
+          <In className="principle" key={a}>
+            <span>0{i + 1}</span>
+            <h3>{a}</h3>
+            <p>{b}</p>
+          </In>
+        ))}
+      </section>
 
-    <section className="process"><div className="wrap"><span>Studio / Process</span><h2>Listen → Map → Shape → Test → Refine</h2><div>{["Observe the real rhythm", "Distil the brief", "Build a spatial response", "Test the Monday", "Make it last"].map((x,i) => <p key={x}><b>0{i+1}</b>{x}</p>)}</div></div></section>
+      <section className="process">
+        <div className="wrap">
+          <span>Studio / Process</span>
+          <h2>Listen → Map → Shape → Test → Refine</h2>
+          <div>
+            {[
+              "Observe the real rhythm",
+              "Distil the brief",
+              "Build a spatial response",
+              "Test the Monday",
+              "Make it last",
+            ].map((x, i) => (
+              <p key={x}>
+                <b>0{i + 1}</b>
+                {x}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section className="team wrap"><header><div className="section-mark"><span>People</span><b>08 / Studio</b></div><h2>Different disciplines.<br/><em>Shared curiosity.</em></h2></header><div className="team-grid">{team.map((n,i) => <div key={n}><span>{n.split(" ").map(x => x[0]).join("")}</span><h3>{n}</h3><p>{["Design direction", "Spatial design", "Creative technology", "Project development", "Design research", "Studio coordination"][i]}</p></div>)}</div></section>
+      <section className="team wrap">
+        <header>
+          <div className="section-mark">
+            <span>People</span>
+            <b>08 / Studio</b>
+          </div>
+          <h2>
+            Different disciplines.
+            <br />
+            <em>Shared curiosity.</em>
+          </h2>
+        </header>
+        <div className="team-grid">
+          {team.map((n, i) => (
+            <div key={n}>
+              <span>
+                {n
+                  .split(" ")
+                  .map((x) => x[0])
+                  .join("")}
+              </span>
+              <h3>{n}</h3>
+              <p>
+                {
+                  [
+                    "Design direction",
+                    "Spatial design",
+                    "Creative technology",
+                    "Project development",
+                    "Design research",
+                    "Studio coordination",
+                  ][i]
+                }
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-    <section className="perspectives"><div className="wrap"><header><span>Client perspectives</span><h2>Trust is built in<br/>the lived result.</h2></header><div className="testimonial-grid">{testimonials.map((item,i)=><article key={item.project}><span>0{i+1} / {item.project}</span><blockquote>“{item.quote}”</blockquote><footer><strong>{item.name}</strong><small>{item.location}</small></footer></article>)}</div></div></section>
+      <section className="perspectives">
+        <div className="wrap">
+          <header>
+            <span>Client perspectives</span>
+            <h2>
+              Trust is built in
+              <br />
+              the lived result.
+            </h2>
+          </header>
+          <div className="testimonial-grid">
+            {testimonials.map((item, i) => (
+              <article key={item.project}>
+                <span>
+                  0{i + 1} / {item.project}
+                </span>
+                <blockquote>“{item.quote}”</blockquote>
+                <footer>
+                  <strong>{item.name}</strong>
+                  <small>{item.location}</small>
+                </footer>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
-    <section className="locations"><div><span>19.0760° N / 72.8777° E</span><h2>Rooted in<br/>Mumbai.</h2><address>Mumbai, Maharashtra<br/>India</address><p>Experience, material culture and a close understanding of how people live with space.</p></div><div><span>12.9716° N / 77.5946° E</span><h2>Rising in<br/>Bengaluru.</h2><address>Bengaluru, Karnataka<br/>India</address><p>A new workplace chapter shaped by technology, ambition and changing ways of work.</p></div></section>
+      <section className="locations">
+        <div>
+          <span>19.0760° N / 72.8777° E</span>
+          <h2>
+            Rooted in
+            <br />
+            Mumbai.
+          </h2>
+          <address>
+            Mumbai, Maharashtra
+            <br />
+            India
+          </address>
+          <p>
+            Experience, material culture and a close understanding of how people
+            live with space.
+          </p>
+        </div>
+        <div>
+          <span>12.9716° N / 77.5946° E</span>
+          <h2>
+            Rising in
+            <br />
+            Bengaluru.
+          </h2>
+          <address>
+            Bengaluru, Karnataka
+            <br />
+            India
+          </address>
+          <p>
+            A new workplace chapter shaped by technology, ambition and changing
+            ways of work.
+          </p>
+        </div>
+      </section>
 
-    <section className="manifesto"><p>We believe spaces should do more than look good.</p><h2>They should make people feel something.<br/>Make work easier.<br/>Conversations easier.<br/>Collaboration natural.<br/>Focus possible.<br/><em>And Monday morning a little better.</em></h2><strong>That is why we design beyond structures.</strong></section>
-  </main>;
+      <section className="manifesto">
+        <p>We believe spaces should do more than look good.</p>
+        <h2>
+          They should make people feel something.
+          <br />
+          Make work easier.
+          <br />
+          Conversations easier.
+          <br />
+          Collaboration natural.
+          <br />
+          Focus possible.
+          <br />
+          <em>And Monday morning a little better.</em>
+        </h2>
+        <strong>That is why we design beyond structures.</strong>
+      </section>
+    </main>
+  );
 }
