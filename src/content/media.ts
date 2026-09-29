@@ -43,6 +43,7 @@ export const projectMediaPaths: Record<
     "gallery-01": "gallery-01.png",
     detail: "detail.png",
     "floor-plan": "floor-plan.png",
+    poster: "detail.png",
   },
   "innovation-campus": {
     hero: "hero.png",
@@ -50,6 +51,7 @@ export const projectMediaPaths: Record<
     "gallery-02": "gallery-02.png",
     detail: "detail.png",
     "floor-plan": "floor-plan.png",
+    poster: "gallery-02.png",
   },
 };
 

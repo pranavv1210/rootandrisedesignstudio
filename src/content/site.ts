@@ -146,6 +146,14 @@ export const team = [
   "Santhiya C",
   "Sai Srija",
 ];
+export const teamRoles: Record<(typeof team)[number], string> = {
+  "Naga Sri Vandanapu": "Account Manager",
+  "Suhas R": "Business Analyst",
+  "Pranav V": "Solution Architect",
+  "Dinesh Kumar": "Design Specialist",
+  "Santhiya C": "Project Manager",
+  "Sai Srija": "Quality Reviewer",
+};
 
 export const testimonials = [
   {

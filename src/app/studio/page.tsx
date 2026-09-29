@@ -1,4 +1,4 @@
-import { team } from "@/content/site";
+import { team, teamRoles } from "@/content/site";
 import TeamPortrait from "@/components/TeamPortrait";
 export default function Studio() {
   return (
@@ -35,22 +35,11 @@ export default function Studio() {
         </div>
       </section>
       <section className="studio-team wrap">
-        {team.map((n, i) => (
+        {team.map((n) => (
           <article key={n}>
             <TeamPortrait name={n} />
             <h2>{n}</h2>
-            <p>
-              {
-                [
-                  "Design direction",
-                  "Spatial design",
-                  "Creative technology",
-                  "Project development",
-                  "Design research",
-                  "Studio coordination",
-                ][i]
-              }
-            </p>
+            <p>{teamRoles[n]}</p>
           </article>
         ))}
       </section>

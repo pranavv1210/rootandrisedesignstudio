@@ -8,7 +8,13 @@ import {
 } from "framer-motion";
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, Plus } from "lucide-react";
 import { useState } from "react";
-import { projects, services, team, testimonials } from "@/content/site";
+import {
+  projects,
+  services,
+  team,
+  teamRoles,
+  testimonials,
+} from "@/content/site";
 import PlanVisual from "./PlanVisual";
 import ProjectMedia from "./ProjectMedia";
 import SpatialImage from "./SpatialImage";
@@ -568,22 +574,11 @@ export default function HomeExperience() {
           </h2>
         </header>
         <div className="team-grid">
-          {team.map((n, i) => (
+          {team.map((n) => (
             <div key={n}>
               <TeamPortrait name={n} />
               <h3>{n}</h3>
-              <p>
-                {
-                  [
-                    "Design direction",
-                    "Spatial design",
-                    "Creative technology",
-                    "Project development",
-                    "Design research",
-                    "Studio coordination",
-                  ][i]
-                }
-              </p>
+              <p>{teamRoles[n]}</p>
             </div>
           ))}
         </div>

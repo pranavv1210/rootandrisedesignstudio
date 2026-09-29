@@ -277,7 +277,7 @@ button {
 .hero-copy h1 {
   margin: 1.7rem 0;
   font-family: var(--display);
-  font-size: clamp(5rem, 10vw, 10.5rem);
+  font-size: clamp(4.5rem, 8vw, 8.5rem);
   font-weight: 400;
   line-height: 0.72;
   letter-spacing: -0.045em;
@@ -411,7 +411,7 @@ button {
 .monday h2 {
   margin: 4rem 0 6rem;
   font-family: var(--display);
-  font-size: clamp(4.5rem, 10vw, 11rem);
+  font-size: clamp(4rem, 8vw, 8.5rem);
   font-weight: 400;
   line-height: 0.75;
   letter-spacing: -0.04em;
@@ -1389,7 +1389,7 @@ button {
 .deck h2 {
   margin: 2rem 0;
   font-family: var(--display);
-  font-size: clamp(4.5rem, 9vw, 10rem);
+  font-size: clamp(3.8rem, 7vw, 7.5rem);
   font-weight: 400;
   line-height: 0.79;
 }
@@ -1441,7 +1441,7 @@ button {
 }
 .page-head h1 {
   font-family: var(--display);
-  font-size: clamp(5rem, 9vw, 10rem);
+  font-size: clamp(4.25rem, 7.5vw, 8rem);
   font-weight: 400;
   line-height: 0.78;
 }
@@ -2410,7 +2410,7 @@ button {
 .film-panel h2 {
   margin: 1rem 0;
   font-family: var(--display);
-  font-size: clamp(3rem, 5vw, 6rem);
+  font-size: clamp(2.7rem, 4vw, 4.8rem);
   font-weight: 400;
   line-height: 0.85;
 }
