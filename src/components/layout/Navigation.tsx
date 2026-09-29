@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import MagneticButton from '@/components/ui/MagneticButton';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 
 const navLinks = [
   { name: 'Work', href: '/work' },
@@ -18,6 +17,7 @@ const navLinks = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,43 +45,32 @@ export default function Navigation() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          scrolled ? "py-4 bg-background/80 backdrop-blur-lg border-b border-surface/50" : "py-8 bg-transparent"
-        )}
-      >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <Link href="/" className="z-50 relative group" aria-label="Root & Rise Home">
-            <span className="font-display text-xl tracking-wide uppercase font-bold text-foreground transition-opacity group-hover:opacity-70">
-              Root & Rise
-            </span>
-          </Link>
+      <header className={`site-nav ${pathname === '/' ? 'site-nav--hero' : 'site-nav--paper'} ${scrolled ? 'site-nav--scrolled' : ''}`}>
+        <div className="site-nav__inner">
+          <Link href="/" className="site-nav__logo" aria-label="Root & Rise home"><span>R</span> ROOT &amp; RISE</Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center space-x-10">
+          <nav className="site-nav__links">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium tracking-wide uppercase hover:text-accent transition-colors"
+                className="site-nav__link"
               >
                 {link.name}
               </Link>
             ))}
-            <MagneticButton href="/contact">
-              Start a Conversation
-            </MagneticButton>
+            <Link href="/contact" className="site-nav__cta">Start a conversation <ArrowUpRight size={14} /></Link>
           </nav>
 
           {/* Mobile Toggle */}
           <button
-            className="lg:hidden z-50 text-foreground p-2"
+            className="site-nav__toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Menu"
+            aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileMenuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
       </header>
@@ -94,9 +83,9 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: '-100%' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-foreground flex flex-col justify-center px-6 md:px-12"
+            className="site-menu"
           >
-            <nav className="flex flex-col space-y-8 text-center mt-12">
+            <nav className="site-menu__links">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.name}
@@ -107,7 +96,7 @@ export default function Navigation() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-display text-5xl md:text-7xl text-background hover:text-terracotta transition-colors uppercase"
+                    className="site-menu__link"
                   >
                     {link.name}
                   </Link>
@@ -118,12 +107,12 @@ export default function Navigation() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + navLinks.length * 0.1, duration: 0.5 }}
-                className="pt-8"
+                className="site-menu__cta-wrap"
               >
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="inline-block bg-background text-foreground px-8 py-4 rounded-full font-medium tracking-wide uppercase hover:bg-terracotta hover:text-background transition-colors"
+                  className="site-nav__cta site-nav__cta--menu"
                 >
                   Start a Conversation
                 </Link>
