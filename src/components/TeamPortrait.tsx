@@ -5,10 +5,10 @@ import { useState } from "react";
 
 const portraitFiles: Record<string, string> = {
   "Naga Sri Vandanapu": "naga-sri-vandanapu.webp",
-  "Suhas R": "suhas-r.webp",
-  "Pranav V": "pranav-v.webp",
-  "Dinesh Kumar": "dinesh-kumar.webp",
-  "Santhiya C": "santhiya-c.webp",
+  "Suhas R": "suhas.jpeg",
+  "Pranav V": "pranav.jpg",
+  "Dinesh Kumar": "dinesh.jpeg",
+  "Santhiya C": "santhiya.jpeg",
   "Sai Srija": "sai-srija.webp",
 };
 
