@@ -6,11 +6,11 @@ export type MediaSpec = {
 
 export type ProjectMediaKind = "hero" | "gallery-01" | "gallery-02" | "detail" | "floor-plan" | "poster";
 
-export const projectMediaPaths: Record<string, Record<ProjectMediaKind, string>> = {
-  "private-residence": { hero: "hero.png", "gallery-01": "hero.png", "gallery-02": "hero.png", detail: "hero.png", "floor-plan": "hero.png", poster: "hero.png" },
-  "urban-residence": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+export const projectMediaPaths: Record<string, Partial<Record<ProjectMediaKind, string>>> = {
+  "private-residence": { hero: "hero.png", "gallery-01": "hero.png", "gallery-02": "hero.png", detail: "hero.png", poster: "hero.png" },
+  "urban-residence": { hero: "gallery-02.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "gallery-02.png" },
   "hospitality-lifestyle": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
-  "signature-interior": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "hero.png", detail: "hero.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+  "signature-interior": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "hero.png", detail: "gallery-01.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
   "collaborative-hq": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "detail.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
   "innovation-campus": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
 };
@@ -26,5 +26,7 @@ export const mediaSpecs: MediaSpec[] = [
 
 export const mediaPath = (slug: string, file: string) => `/projects/${slug}/${file}`;
 
-export const projectMediaPath = (slug: string, kind: ProjectMediaKind) =>
-  mediaPath(slug, projectMediaPaths[slug]?.[kind] ?? "hero.png");
+export const projectMediaPath = (slug: string, kind: ProjectMediaKind) => {
+  const file = projectMediaPaths[slug]?.[kind];
+  return file ? mediaPath(slug, file) : null;
+};
