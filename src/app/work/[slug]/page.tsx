@@ -1,38 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
-import ProjectVisual from "@/components/projects/ProjectVisual";
-import { getProject, projects } from "@/data/projects";
-
-export function generateStaticParams() { return projects.map(({ slug }) => ({ slug })); }
-
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const project = getProject(params.slug);
-  return project ? { title: `${project.title} | Root & Rise`, description: project.description } : {};
-}
-
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProject(params.slug);
-  if (!project) notFound();
-  return (
-    <article className="project-page">
-      <header className="project-page__hero section-frame">
-        <Link href="/work" className="text-link"><ArrowLeft size={15} /> All work</Link>
-        <div className="project-page__title">
-          <span className="section-index">{project.kind} / {project.status}</span>
-          <h1>{project.title}</h1>
-          <p>{project.description}</p>
-        </div>
-        <dl className="project-page__meta"><div><dt>Place</dt><dd>{project.location}</dd></div><div><dt>Year</dt><dd>{project.year}</dd></div><div><dt>Status</dt><dd>{project.status}</dd></div></dl>
-      </header>
-      <div className="section-frame"><ProjectVisual project={project} /></div>
-      <section className="project-page__story section-frame">
-        <div><span className="section-index">The premise</span><h2>{project.concept}</h2></div>
-        <div className="project-page__notes"><div><span>Challenge</span><p>{project.challenge}</p></div><div><span>Insight</span><p>{project.insight}</p></div><div><span>Design response</span><p>{project.designResponse}</p></div></div>
-      </section>
-      <section className="project-page__levels"><div className="section-frame"><span className="section-index section-index--light">Spatial strategy</span><h2>A plan for<br />different kinds of work.</h2><div className="level-plan"><span>GROUND</span><span>01</span><span>02</span><span>03</span><span>ROOF</span><i /><b>ACTIVE / 02</b></div></div></section>
-      <footer className="project-page__next section-frame"><p>Every project starts with listening.</p><Link href="/contact" className="line-button">Start a conversation <ArrowUpRight size={17} /></Link></footer>
-    </article>
-  );
-}
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import PlanVisual from "@/components/PlanVisual";
+import { projects } from "@/content/site";
+export function generateStaticParams() { return projects.map(p => ({ slug: p.slug })); }
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata { const p=projects.find(x=>x.slug===params.slug); return p ? { title: p.title, description: p.statement } : {}; }
+export default function Project({ params }: { params: { slug: string } }) { const p=projects.find(x=>x.slug===params.slug); if(!p) notFound(); const i=projects.indexOf(p); const next=projects[(i+1)%projects.length]; return <main className="case"><header className="case-head wrap"><Link href="/work"><ArrowLeft/> All work</Link><div><span>{p.type} / {p.status}</span><h1>{p.title}</h1><p>{p.statement}</p></div><dl><div><dt>Place</dt><dd>{p.place}</dd></div><div><dt>Year</dt><dd>{p.year}</dd></div><div><dt>Status</dt><dd>{p.status}</dd></div></dl></header><div className="wrap case-visual"><PlanVisual project={p} index={i}/></div><section className="case-story wrap"><div><span>01 / Challenge</span><h2>{p.challenge}</h2></div><div><span>02 / Insight</span><h2>{p.insight}</h2></div><div><span>03 / Design response</span><h2>{p.response}</h2></div></section><section className="level-explorer"><div className="wrap"><span>Spatial strategy / Level 02</span><h2>A plan for different<br/>kinds of experience.</h2><div className="level-ui"><nav>{["GROUND","01","02","03","04","ROOF"].map(x=><button className={x==="02"?"active":""} key={x}>{x}</button>)}</nav><PlanVisual project={p}/><aside><span>Active level</span><strong>02</strong><p>{p.services.join(" / ")}</p></aside></div></div></section><Link className="next-project wrap" href={`/work/${next.slug}`}><span>Next project</span><h2>{next.title}</h2><ArrowRight/></Link></main>; }

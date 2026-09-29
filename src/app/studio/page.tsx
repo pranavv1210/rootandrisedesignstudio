@@ -1,20 +1,2 @@
-import Team from "@/components/sections/Team";
-import Location from "@/components/sections/Location";
-import Manifesto from "@/components/sections/Manifesto";
-
-export default function StudioPage() {
-  return (
-    <>
-      <header className="pt-40 pb-24 px-6 md:px-12 bg-background">
-        <div className="container mx-auto">
-          <span className="text-sm font-bold tracking-[0.2em] uppercase text-accent">Studio / 03</span>
-          <h1 className="font-display text-6xl md:text-8xl max-w-4xl mt-6">Rooted in Mumbai. Rising in Bengaluru.</h1>
-          <p className="text-xl text-foreground/70 max-w-xl mt-8">A multidisciplinary team bringing account thinking, business understanding, spatial intelligence, and care for detail to the same table.</p>
-        </div>
-      </header>
-      <Team />
-      <Location />
-      <Manifesto />
-    </>
-  );
-}
+import { team } from "@/content/site";
+export default function Studio(){return <main className="subpage"><header className="page-head wrap"><span>Studio / People</span><h1>Rooted in people.<br/><em>Rising through design.</em></h1><p>Years of design experience. A new chapter in workplace design. We bring the intimacy and attention of B2C work into environments for teams and businesses.</p></header><section className="studio-story wrap"><h2>We spent years understanding how people experience spaces. Now we bring that understanding into the places where people work.</h2><div><p>Root & Rise is a collaborative design practice working across interior architecture, experience, workplace strategy and creative technology.</p><p>We do not claim a history we have not lived. Our workplace portfolio is a developing chapter, supported by a strong foundation in human-centred residential and lifestyle design.</p></div></section><section className="studio-team wrap">{team.map((n,i)=><article key={n}><span>{n.split(" ").map(x=>x[0]).join("")}</span><h2>{n}</h2><p>{["Design direction","Spatial design","Creative technology","Project development","Design research","Studio coordination"][i]}</p></article>)}</section></main>}

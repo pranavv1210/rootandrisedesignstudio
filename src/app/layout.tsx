@@ -1,20 +1,10 @@
-import type { Metadata } from "next";
-import { displayFont, bodyFont } from "@/lib/fonts";
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/layout/Navigation";
-import Footer from "@/components/layout/Footer";
-import PresentationMode from "@/components/presentation/PresentationMode";
+import Shell from "@/components/Shell";
 
-export const metadata: Metadata = {
-  title: "Root & Rise Design Studio | Designing Beyond Structures",
-  description: "Root & Rise creates thoughtful residential, lifestyle and workplace environments designed around people, purpose and experience.",
-  metadataBase: new URL("https://rootandrisedesignstudio.vercel.app"),
-  manifest: "/manifest.webmanifest",
-  icons: { icon: "/brand/favicon.svg", apple: "/brand/apple-touch-icon.svg" },
-  openGraph: { title: "Root & Rise Design Studio", description: "Designing beyond structures. We design for Monday mornings.", type: "website" },
-  twitter: { card: "summary_large_image", title: "Root & Rise Design Studio", description: "Designing beyond structures." },
-};
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`}><body className="font-sans bg-background text-foreground overflow-x-hidden w-full selection:bg-accent selection:text-background flex flex-col min-h-screen"><Navigation /><PresentationMode /><main className="flex-grow w-full">{children}</main><Footer /></body></html>;
-}
+const display = Cormorant_Garamond({ subsets: ["latin"], variable: "--display", weight: ["400", "500", "600"], style: ["normal", "italic"] });
+const body = Manrope({ subsets: ["latin"], variable: "--body" });
+export const metadata: Metadata = { title: { default: "Root & Rise Design Studio | Designing Beyond Structures", template: "%s | Root & Rise" }, description: "Root & Rise Design Studio creates thoughtful residential, lifestyle and workplace environments designed around people, purpose and experience.", metadataBase: new URL("https://rootandrisedesignstudio.vercel.app"), manifest: "/manifest.webmanifest", icons: { icon: "/brand/favicon.svg", apple: "/brand/app-icon.svg" }, openGraph: { title: "Root & Rise Design Studio", description: "Designing beyond structures. We design for Monday mornings.", type: "website" }, twitter: { card: "summary_large_image" } };
+export const viewport: Viewport = { themeColor: "#171918", width: "device-width", initialScale: 1 };
+export default function Layout({ children }: { children: React.ReactNode }) { return <html lang="en" className={`${display.variable} ${body.variable}`}><body><Shell>{children}</Shell></body></html>; }

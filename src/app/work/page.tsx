@@ -1,8 +1,5 @@
 import Link from "next/link";
+import PlanVisual from "@/components/PlanVisual";
+import { projects } from "@/content/site";
 import { ArrowUpRight } from "lucide-react";
-import ProjectVisual from "@/components/projects/ProjectVisual";
-import { projects } from "@/data/projects";
-
-export default function WorkPage() {
-  return <main className="work-index"><header className="work-index__header section-frame"><span className="section-index">Work / 01—06</span><h1>Spaces are<br /><em>lived stories.</em></h1><p>Four built-experience chapters. Two workplace futures. One continuing study of how people inhabit space.</p></header><section className="work-index__grid section-frame" aria-label="Projects">{projects.map((project, index) => <Link href={`/work/${project.slug}`} className={`project-entry project-entry--${index % 3}`} key={project.slug}><ProjectVisual project={project} compact /><div className="project-entry__meta"><span>0{index + 1}</span><span>{project.category}</span><span>{project.status}</span></div><h2>{project.title}</h2><p>{project.description}</p><span className="project-entry__link">Enter project <ArrowUpRight size={15} /></span></Link>)}</section></main>;
-}
+export default function Work() { return <main className="subpage work-page"><header className="page-head wrap"><span>Portfolio / 01—06</span><h1>Spaces, stories<br/><em>& futures.</em></h1><p>Four projects demonstrate our experience across residential and lifestyle design. Two conceptual workplace studies mark the direction we are rising toward.</p></header><section className="work-archive wrap">{projects.map((p,i) => <Link href={`/work/${p.slug}`} key={p.slug}><PlanVisual project={p} index={i}/><div><span>0{i+1}</span><small>{p.type} / {p.place}</small><b>{p.status}</b></div><h2>{p.title}</h2><p>{p.statement}</p><i>View case study <ArrowUpRight/></i></Link>)}</section></main>; }

@@ -1,9 +1,2 @@
-import ContactSection from "@/components/sections/Contact";
-
-export default function ContactPage() {
-  return (
-    <div className="pt-24">
-      <ContactSection />
-    </div>
-  );
-}
+import ContactForm from "@/components/ContactForm";
+export default function Contact(){return <main className="subpage contact-page"><header className="page-head wrap"><span>Contact / Conversation room</span><h1>What could your<br/><em>space become?</em></h1><p>Tell us about your space, your people and where you’re going. We’ll begin with the questions that matter.</p></header><section className="contact-layout wrap"><aside><span>Mumbai</span><p>19.0760° N<br/>72.8777° E</p><span>Bengaluru</span><p>12.9716° N<br/>77.5946° E</p><a href="mailto:hello@rootandrise.studio">hello@rootandrise.studio</a></aside><ContactForm/></section></main>}

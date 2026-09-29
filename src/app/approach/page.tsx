@@ -1,22 +1,2 @@
-import Philosophy from "@/components/sections/Philosophy";
-import DesignIntelligence from "@/components/sections/DesignIntelligence";
-import Process from "@/components/sections/Process";
-import DesignPrinciples from "@/components/sections/DesignPrinciples";
-
-export default function ApproachPage() {
-  return (
-    <>
-      <header className="pt-40 pb-24 px-6 md:px-12 bg-background">
-        <div className="container mx-auto">
-          <span className="text-sm font-bold tracking-[0.2em] uppercase text-accent">Approach / 02</span>
-          <h1 className="font-display text-6xl md:text-8xl max-w-4xl mt-6">How we design beyond structures.</h1>
-          <p className="text-xl text-foreground/70 max-w-xl mt-8">We begin with people, translate what we learn into decisions, and build spaces that can keep changing.</p>
-        </div>
-      </header>
-      <Philosophy />
-      <DesignIntelligence />
-      <Process />
-      <DesignPrinciples />
-    </>
-  );
-}
+const steps=[["Listen","Begin with people, not assumptions."],["Observe","Read movement, culture and friction."],["Define","Turn complexity into a clear brief."],["Shape","Give the insight a spatial language."],["Test","Ask whether it works on Monday."],["Refine","Carry the idea through every detail."]];
+export default function Approach(){return <main className="subpage"><header className="page-head wrap"><span>Approach / Studio method</span><h1>Design begins<br/><em>with listening.</em></h1><p>We move from lived behaviour to spatial response. Every stage protects the relationship between people, purpose and place.</p></header><section className="approach-map wrap">{steps.map(([a,b],i)=><div key={a}><span>0{i+1}</span><h2>{a}</h2><p>{b}</p></div>)}</section><section className="approach-vision"><div className="wrap"><span>Vision</span><h2>To shape environments where people, ideas and businesses have room to grow.</h2><p>Our mission is to transform spaces into meaningful experiences by combining human understanding, thoughtful design, functionality and innovation.</p></div></section></main>}
