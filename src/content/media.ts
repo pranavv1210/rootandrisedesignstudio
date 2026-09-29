@@ -4,6 +4,17 @@ export type MediaSpec = {
   heroPrompt: string; videoPrompt: string;
 };
 
+export type ProjectMediaKind = "hero" | "gallery-01" | "gallery-02" | "detail" | "floor-plan" | "poster";
+
+export const projectMediaPaths: Record<string, Record<ProjectMediaKind, string>> = {
+  "private-residence": { hero: "hero.png", "gallery-01": "hero.png", "gallery-02": "hero.png", detail: "hero.png", "floor-plan": "hero.png", poster: "hero.png" },
+  "urban-residence": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+  "hospitality-lifestyle": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+  "signature-interior": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "hero.png", detail: "hero.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+  "collaborative-hq": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "detail.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+  "innovation-campus": { hero: "hero.png", "gallery-01": "gallery-01.png", "gallery-02": "gallery-02.png", detail: "detail.png", "floor-plan": "floor-plan.png", poster: "hero.png" },
+};
+
 export const mediaSpecs: MediaSpec[] = [
   { slug:"private-residence", buildingType:"Premium urban private residence", size:"2,400–3,200 sq ft", users:"A multigenerational family of 4–6", mood:"Quiet, warm, tactile, deeply lived-in", architecture:"Layered apartment interior with filtered thresholds, a central light court and long visual axes", keyZones:["Arrival gallery","Living lounge","Dining court","Quiet study","Primary suite","Family threshold"], materials:["Warm limestone","Smoked oak","Hand-finished lime plaster","Antique brass","Textured linen"], lighting:"Soft morning daylight, warm concealed evening light, deep natural shadows", heroPrompt:"Cinematic editorial architectural photograph of a premium Mumbai residence, layered thresholds framing a sunlit living and dining court, warm limestone floor, smoked oak joinery, lime plaster walls, antique brass details, textured linen, Indian contemporary minimalism, calm human warmth, lived-in but uncluttered, 24mm architectural lens, eye level, soft Monday morning daylight, realistic materials, no people, no text, 16:9", videoPrompt:"10-second slow architectural dolly through a layered Mumbai residence from a shadowed arrival gallery into a sunlit living court, subtle curtain movement, shifting daylight across limestone, realistic interior film, stable camera, premium editorial grade, no people, no text, seamless ending" },
   { slug:"urban-residence", buildingType:"Adaptable compact city apartment", size:"1,200–1,800 sq ft", users:"Young creative family working partly from home", mood:"Precise, flexible, optimistic, calm", architecture:"Open apartment organised by a multifunctional joinery spine and sliding partitions", keyZones:["Convertible studio","Living room","Dining workspace","Children’s room","Hidden storage spine","Balcony garden"], materials:["Ash timber","Muted olive lacquer","Terrazzo","Brushed steel","Natural wool"], lighting:"Clear diffused daylight with crisp task lighting", heroPrompt:"High-end architectural editorial photograph of an adaptable Bengaluru apartment, movable olive partitions and ash timber storage spine transforming an open living room into work and family zones, terrazzo floor, brushed steel accents, soft balcony garden, precise contemporary Indian interior, diffused daylight, 28mm lens, realistic, no people, no text, 16:9", videoPrompt:"10-second cinematic transformation of a compact Bengaluru apartment, slow lateral camera as sliding panels reveal a concealed desk and shift living space into a focus studio, subtle daylight, realistic architectural visualization, refined neutral grade, no people, no text" },
@@ -14,3 +25,6 @@ export const mediaSpecs: MediaSpec[] = [
 ];
 
 export const mediaPath = (slug: string, file: string) => `/projects/${slug}/${file}`;
+
+export const projectMediaPath = (slug: string, kind: ProjectMediaKind) =>
+  mediaPath(slug, projectMediaPaths[slug]?.[kind] ?? "hero.png");
