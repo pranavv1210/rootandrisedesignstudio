@@ -38,3 +38,35 @@ Use lowercase filenames exactly as shown. WebP quality 80–86 is recommended. P
 - Video: 10–15 seconds, stable dolly/gimbal motion, clean first and last frames, no cuts needed, no embedded titles.
 
 The complete building briefs and generation prompts are stored in `src/content/media.ts` so each project’s visual inputs remain versioned alongside the website.
+
+## Additional homepage spatial images
+
+The interactive **What We Design** environment accepts six optional 16:9 images at 1920 × 1080:
+
+```text
+public/spaces/modes/focus.webp
+public/spaces/modes/collaborate.webp
+public/spaces/modes/social.webp
+public/spaces/modes/meeting.webp
+public/spaces/modes/executive.webp
+public/spaces/modes/hybrid.webp
+```
+
+- `focus`: acoustic focus library, individual desks, calm daylight.
+- `collaborate`: flexible project room with writable surfaces and movable furniture.
+- `social`: hospitality-inspired workplace lounge with planting and informal seating.
+- `meeting`: hybrid meeting environment with integrated display and good sightlines.
+- `executive`: restrained executive suite with a private meeting area.
+- `hybrid`: adaptable multipurpose workplace with movable partitions.
+
+The **Home → Workplace** transformation accepts two 3:2 or 16:9 images:
+
+```text
+public/spaces/transformation/home.webp
+public/spaces/transformation/workplace.webp
+```
+
+- `home`: warm residential living/dining environment showing comfort and personal scale.
+- `workplace`: social workplace lounge or collaboration setting with a similar composition to the home image.
+
+Matching camera angles are recommended for the transformation pair. PNG versions are accepted automatically when WebP files are absent. All these images receive masked reveals, scroll parallax and hover zoom. If they are missing, the existing architectural line drawings remain visible.
