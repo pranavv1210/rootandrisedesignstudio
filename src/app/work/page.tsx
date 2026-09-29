@@ -1,20 +1,8 @@
-import SelectedWork from "@/components/sections/SelectedWork";
-import DreamOffice from "@/components/sections/DreamOffice";
-import Contact from "@/components/sections/Contact";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import ProjectVisual from "@/components/projects/ProjectVisual";
+import { projects } from "@/data/projects";
 
 export default function WorkPage() {
-  return (
-    <>
-      <header className="pt-40 pb-24 px-6 md:px-12 bg-background">
-        <div className="container mx-auto">
-          <span className="text-sm font-bold tracking-[0.2em] uppercase text-accent">Work / 01</span>
-          <h1 className="font-display text-6xl md:text-8xl max-w-4xl mt-6">Spaces, stories, and experiments.</h1>
-          <p className="text-xl text-foreground/70 max-w-xl mt-8">A growing body of workplace studies and concepts, clearly marked by where they are in the journey.</p>
-        </div>
-      </header>
-      <SelectedWork />
-      <DreamOffice />
-      <Contact />
-    </>
-  );
+  return <main className="work-index"><header className="work-index__header section-frame"><span className="section-index">Work / 01—06</span><h1>Spaces are<br /><em>lived stories.</em></h1><p>Four built-experience chapters. Two workplace futures. One continuing study of how people inhabit space.</p></header><section className="work-index__grid section-frame" aria-label="Projects">{projects.map((project, index) => <Link href={`/work/${project.slug}`} className={`project-entry project-entry--${index % 3}`} key={project.slug}><ProjectVisual project={project} compact /><div className="project-entry__meta"><span>0{index + 1}</span><span>{project.category}</span><span>{project.status}</span></div><h2>{project.title}</h2><p>{project.description}</p><span className="project-entry__link">Enter project <ArrowUpRight size={15} /></span></Link>)}</section></main>;
 }
