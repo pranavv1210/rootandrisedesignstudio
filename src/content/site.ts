@@ -21,3 +21,9 @@ export const services = [
 ] as const;
 
 export const team = ["Nagashree", "Suhas R.", "Pranav V.", "Dinesh K.", "Santhya C.", "Sreeja"];
+
+export const testimonials = [
+  { name: "Private Residence Client", location: "Mumbai, Maharashtra", project: "House Between Light", quote: "Root & Rise understood that our home needed to hold different generations without making anyone feel separated. The planning feels natural, storage is quietly resolved, and the house works just as well on a busy weekday as it does when the whole family gathers." },
+  { name: "Urban Apartment Client", location: "Bengaluru, Karnataka", project: "Rooms That Move", quote: "They listened to how we actually work, host and live before proposing a single solution. The adaptable joinery has changed how we use the apartment, and every detail feels deliberate rather than decorative." },
+  { name: "Hospitality Concept Partner", location: "Goa, India", project: "The Courtyard Table", quote: "The team translated an abstract ambition—intimacy inside an open venue—into a clear spatial idea. Their process made operational decisions, atmosphere and guest experience feel like one conversation." },
+] as const;
