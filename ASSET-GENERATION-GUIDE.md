@@ -27,7 +27,7 @@ Valid project slugs:
 - `collaborative-hq`
 - `innovation-campus`
 
-Use lowercase filenames exactly as shown. WebP quality 80–86 is recommended. Keep hero images below 700 KB, gallery images below 500 KB, and each video ideally below 12 MB. Videos must be silent or have audio removed because they autoplay muted.
+Use lowercase filenames exactly as shown. WebP quality 80–86 is recommended. PNG and JPG are also detected automatically when the preferred WebP file is missing—for example, `hero.png` works without code changes. Keep hero images below 700 KB, gallery images below 500 KB, and each video ideally below 12 MB. Videos must be silent or have audio removed because they autoplay muted.
 
 ## Visual consistency
 
