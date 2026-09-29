@@ -195,7 +195,7 @@ button {
 }
 .mobile-menu a {
   font-family: var(--display);
-  font-size: clamp(3.5rem, 13vw, 7rem);
+  font-size: clamp(3rem, 10vw, 5.25rem);
   line-height: 0.9;
   text-decoration: none;
 }
@@ -277,7 +277,7 @@ button {
 .hero-copy h1 {
   margin: 1.7rem 0;
   font-family: var(--display);
-  font-size: clamp(4.5rem, 8vw, 8.5rem);
+  font-size: clamp(4rem, 7vw, 7.25rem);
   font-weight: 400;
   line-height: 0.72;
   letter-spacing: -0.045em;
@@ -411,7 +411,7 @@ button {
 .monday h2 {
   margin: 4rem 0 6rem;
   font-family: var(--display);
-  font-size: clamp(4rem, 8vw, 8.5rem);
+  font-size: clamp(3.75rem, 6.8vw, 7rem);
   font-weight: 400;
   line-height: 0.75;
   letter-spacing: -0.04em;
@@ -447,7 +447,7 @@ button {
   max-width: 1100px;
   margin: 5rem 0;
   font-family: var(--display);
-  font-size: clamp(4rem, 8vw, 8rem);
+  font-size: clamp(3.5rem, 6.5vw, 6.5rem);
   font-weight: 400;
   line-height: 0.87;
 }
@@ -502,7 +502,7 @@ button {
 .root-rise h2 {
   margin: 3rem 0 2rem;
   font-family: var(--display);
-  font-size: clamp(4rem, 6vw, 7rem);
+  font-size: clamp(3.5rem, 5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.82;
 }
@@ -560,7 +560,7 @@ button {
 .principles header h2,
 .team header h2 {
   font-family: var(--display);
-  font-size: clamp(3.7rem, 7vw, 7rem);
+  font-size: clamp(3.25rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.86;
 }
@@ -764,7 +764,7 @@ button {
 .homes p,
 .workplace p {
   font-family: var(--display);
-  font-size: clamp(2.5rem, 4vw, 4.6rem);
+  font-size: clamp(2.2rem, 3.2vw, 3.65rem);
   line-height: 1.06;
 }
 .home-icon,
@@ -835,7 +835,7 @@ button {
 }
 .homes-work footer h2 {
   font-family: var(--display);
-  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-size: clamp(3.1rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.86;
 }
@@ -880,7 +880,7 @@ button {
 .project h3 {
   margin-top: 1.4rem;
   font-family: var(--display);
-  font-size: clamp(2.7rem, 4vw, 4.8rem);
+  font-size: clamp(2.35rem, 3.4vw, 3.9rem);
   font-weight: 400;
   line-height: 0.9;
 }
@@ -931,7 +931,7 @@ button {
 .intelligence h2 {
   margin: 3rem 0;
   font-family: var(--display);
-  font-size: clamp(4rem, 7vw, 7rem);
+  font-size: clamp(3.4rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.83;
 }
@@ -1094,7 +1094,7 @@ button {
 }
 .principle h3 {
   font-family: var(--display);
-  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  font-size: clamp(2.2rem, 3.2vw, 3.65rem);
   font-weight: 400;
 }
 .principle p {
@@ -1115,7 +1115,7 @@ button {
 .process h2 {
   margin: 3rem 0 5rem;
   font-family: var(--display);
-  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-size: clamp(3.1rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.9;
 }
@@ -1215,7 +1215,7 @@ button {
   max-width: 1000px;
   margin: 4rem 0;
   font-family: var(--display);
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(2.6rem, 4.5vw, 4.75rem);
   line-height: 0.95;
 }
 .perspectives p {
@@ -1246,7 +1246,7 @@ button {
 .locations h2 {
   margin: 3rem 0;
   font-family: var(--display);
-  font-size: clamp(4rem, 6vw, 7rem);
+  font-size: clamp(3.4rem, 5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.82;
 }
@@ -1271,7 +1271,7 @@ button {
   max-width: 1100px;
   margin: 5rem 0;
   font-family: var(--display);
-  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  font-size: clamp(3.1rem, 5.5vw, 6rem);
   font-weight: 400;
   line-height: 0.9;
 }
@@ -1297,7 +1297,7 @@ button {
 .footer h2 {
   margin: 4rem 0;
   font-family: var(--display);
-  font-size: clamp(4rem, 8vw, 9rem);
+  font-size: clamp(3.5rem, 6vw, 6.75rem);
   font-weight: 400;
   line-height: 0.8;
 }
@@ -1389,7 +1389,7 @@ button {
 .deck h2 {
   margin: 2rem 0;
   font-family: var(--display);
-  font-size: clamp(3.8rem, 7vw, 7.5rem);
+  font-size: clamp(3.25rem, 5.4vw, 5.75rem);
   font-weight: 400;
   line-height: 0.79;
 }
@@ -1441,7 +1441,7 @@ button {
 }
 .page-head h1 {
   font-family: var(--display);
-  font-size: clamp(4.25rem, 7.5vw, 8rem);
+  font-size: clamp(3.75rem, 6vw, 6.5rem);
   font-weight: 400;
   line-height: 0.78;
 }
@@ -1472,7 +1472,7 @@ button {
 .work-archive h2 {
   margin-top: 1.5rem;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-size: clamp(2.4rem, 3.8vw, 4rem);
   font-weight: 400;
   line-height: 0.9;
 }
@@ -1512,7 +1512,7 @@ button {
 .case-head h1 {
   margin: 2rem 0;
   font-family: var(--display);
-  font-size: clamp(4.5rem, 8vw, 9rem);
+  font-size: clamp(3.75rem, 6vw, 6.75rem);
   font-weight: 400;
   line-height: 0.8;
 }
@@ -1554,7 +1554,7 @@ button {
 .case-story h2 {
   max-width: 880px;
   font-family: var(--display);
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(2.2rem, 3.8vw, 4rem);
   font-weight: 400;
   line-height: 0.95;
 }
@@ -1566,7 +1566,7 @@ button {
 .level-explorer h2 {
   margin: 3rem 0 5rem 25%;
   font-family: var(--display);
-  font-size: clamp(4rem, 7vw, 7rem);
+  font-size: clamp(3.4rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.84;
 }
@@ -1627,7 +1627,7 @@ button {
 }
 .next-project h2 {
   font-family: var(--display);
-  font-size: clamp(3rem, 6vw, 6rem);
+  font-size: clamp(2.6rem, 4.5vw, 4.75rem);
   font-weight: 400;
 }
 .approach-map {
@@ -1668,7 +1668,7 @@ button {
   max-width: 1100px;
   margin: 3rem 0;
   font-family: var(--display);
-  font-size: clamp(4rem, 7vw, 7rem);
+  font-size: clamp(3.4rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.9;
 }
@@ -1685,7 +1685,7 @@ button {
 }
 .studio-story h2 {
   font-family: var(--display);
-  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-size: clamp(2.6rem, 4vw, 4.5rem);
   font-weight: 400;
   line-height: 0.95;
 }
@@ -2078,7 +2078,7 @@ button {
     padding-top: 18vh;
   }
   .hero-copy h1 {
-    font-size: clamp(4.5rem, 21vw, 7rem);
+    font-size: clamp(3.6rem, 17vw, 5.25rem);
   }
   .hero-copy > div {
     align-items: flex-start;
@@ -2097,7 +2097,7 @@ button {
     min-height: 850px;
   }
   .monday h2 {
-    font-size: 4.6rem;
+    font-size: 3.7rem;
     margin-block: 3rem;
   }
   .monday-rhythm {
@@ -2198,7 +2198,7 @@ button {
     padding: 8rem 18px;
   }
   .footer h2 {
-    font-size: 4.2rem;
+    font-size: 3.5rem;
   }
   .footer-meta {
     align-items: flex-start;
@@ -2206,7 +2206,7 @@ button {
     gap: 1rem;
   }
   .deck h2 {
-    font-size: 4rem;
+    font-size: 3.2rem;
   }
   .deck > footer > span,
   .deck > footer > div:last-child button:nth-child(2),
@@ -2217,7 +2217,7 @@ button {
     padding-block: 6rem;
   }
   .page-head h1 {
-    font-size: 4.7rem;
+    font-size: 3.8rem;
   }
   .work-archive {
     display: block;
@@ -2230,7 +2230,7 @@ button {
     padding-block: 5rem;
   }
   .case-head h1 {
-    font-size: 4.5rem;
+    font-size: 3.7rem;
   }
   .case-visual .plan {
     height: 55vh;
@@ -2410,7 +2410,7 @@ button {
 .film-panel h2 {
   margin: 1rem 0;
   font-family: var(--display);
-  font-size: clamp(2.7rem, 4vw, 4.8rem);
+  font-size: clamp(2.4rem, 3.4vw, 3.9rem);
   font-weight: 400;
   line-height: 0.85;
 }
@@ -2626,7 +2626,7 @@ button {
     padding-top: 18vh;
   }
   .deck h2 {
-    font-size: 3.4rem;
+    font-size: 3rem;
   }
   .deck > main p {
     max-width: 92%;
@@ -2775,7 +2775,7 @@ button {
 .deck > main.deck-detailed h2 {
   max-width: 760px;
   margin: 1.2rem 0;
-  font-size: clamp(3.6rem, 6.2vw, 7rem);
+  font-size: clamp(3rem, 4.8vw, 5.25rem);
   line-height: 0.8;
 }
 .deck > main.deck-detailed > p {
@@ -2810,7 +2810,7 @@ button {
 }
 @media (max-width: 960px) {
   .deck > main.deck-detailed h2 {
-    font-size: clamp(3.2rem, 8vw, 5.5rem);
+    font-size: clamp(2.8rem, 6.5vw, 4.5rem);
   }
   .deck-detailed ul {
     width: min(680px, 88vw);
@@ -2821,7 +2821,7 @@ button {
     padding-top: 12vh;
   }
   .deck > main.deck-detailed h2 {
-    font-size: 2.85rem;
+    font-size: 2.55rem;
   }
   .deck > main.deck-detailed > p {
     font-size: 0.7rem;
@@ -2892,7 +2892,7 @@ button {
 }
 .perspectives header h2 {
   font-family: var(--display);
-  font-size: clamp(4rem, 7vw, 7rem);
+  font-size: clamp(3.4rem, 5.5vw, 5.75rem);
   font-weight: 400;
   line-height: 0.84;
 }
