@@ -2412,6 +2412,20 @@ button {
   gap: 2rem;
   padding-top: 2rem;
 }
+.case-gallery--1 {
+  display: block;
+}
+.case-gallery--1 .media-frame {
+  width: min(900px, 100%);
+  min-height: 620px;
+}
+.case-gallery--2 {
+  grid-template-columns: 1fr 1fr;
+}
+.case-gallery--2 .media-frame:first-child {
+  grid-row: auto;
+  min-height: 560px;
+}
 .case-gallery .media-frame:first-child {
   grid-row: span 2;
   min-height: 800px;
