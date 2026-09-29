@@ -1162,6 +1162,32 @@ button {
   font-size: 2rem;
   color: var(--olive);
 }
+.team-portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  background: var(--mineral);
+}
+.team-portrait > span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--olive);
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+}
+.team-portrait img {
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.team-grid > div:hover .team-portrait img,
+.studio-team article:hover .team-portrait img {
+  transform: scale(1.035);
+}
 .team-grid h3,
 .studio-team h2 {
   font-family: var(--display);

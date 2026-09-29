@@ -1,0 +1,38 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+
+const portraitFiles: Record<string, string> = {
+  "Naga Sri Vandanapu": "naga-sri-vandanapu.webp",
+  "Suhas R": "suhas-r.webp",
+  "Pranav V": "pranav-v.webp",
+  "Dinesh Kumar": "dinesh-kumar.webp",
+  "Santhiya C": "santhiya-c.webp",
+  "Sai Srija": "sai-srija.webp",
+};
+
+export default function TeamPortrait({ name }: { name: string }) {
+  const [failed, setFailed] = useState(false);
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("");
+  const file = portraitFiles[name];
+
+  return (
+    <div className="team-portrait" aria-label={`${name} portrait`}>
+      <span>{initials}</span>
+      {!failed && file && (
+        <Image
+          src={`/team/${file}`}
+          alt={name}
+          fill
+          sizes="(max-width: 600px) 100vw, 33vw"
+          unoptimized
+          onError={() => setFailed(true)}
+        />
+      )}
+    </div>
+  );
+}

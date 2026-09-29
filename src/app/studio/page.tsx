@@ -1,2 +1,59 @@
 import { team } from "@/content/site";
-export default function Studio(){return <main className="subpage"><header className="page-head wrap"><span>Studio / People</span><h1>Rooted in people.<br/><em>Rising through design.</em></h1><p>Years of design experience. A new chapter in workplace design. We bring the intimacy and attention of B2C work into environments for teams and businesses.</p></header><section className="studio-story wrap"><h2>We spent years understanding how people experience spaces. Now we bring that understanding into the places where people work.</h2><div><p>Root & Rise is a collaborative design practice working across interior architecture, experience, workplace strategy and creative technology.</p><p>We do not claim a history we have not lived. Our workplace portfolio is a developing chapter, supported by a strong foundation in human-centred residential and lifestyle design.</p></div></section><section className="studio-team wrap">{team.map((n,i)=><article key={n}><span>{n.split(" ").map(x=>x[0]).join("")}</span><h2>{n}</h2><p>{["Design direction","Spatial design","Creative technology","Project development","Design research","Studio coordination"][i]}</p></article>)}</section></main>}
+import TeamPortrait from "@/components/TeamPortrait";
+export default function Studio() {
+  return (
+    <main className="subpage">
+      <header className="page-head wrap">
+        <span>Studio / People</span>
+        <h1>
+          Rooted in people.
+          <br />
+          <em>Rising through design.</em>
+        </h1>
+        <p>
+          Years of design experience. A new chapter in workplace design. We
+          bring the intimacy and attention of B2C work into environments for
+          teams and businesses.
+        </p>
+      </header>
+      <section className="studio-story wrap">
+        <h2>
+          We spent years understanding how people experience spaces. Now we
+          bring that understanding into the places where people work.
+        </h2>
+        <div>
+          <p>
+            Root & Rise is a collaborative design practice working across
+            interior architecture, experience, workplace strategy and creative
+            technology.
+          </p>
+          <p>
+            We do not claim a history we have not lived. Our workplace portfolio
+            is a developing chapter, supported by a strong foundation in
+            human-centred residential and lifestyle design.
+          </p>
+        </div>
+      </section>
+      <section className="studio-team wrap">
+        {team.map((n, i) => (
+          <article key={n}>
+            <TeamPortrait name={n} />
+            <h2>{n}</h2>
+            <p>
+              {
+                [
+                  "Design direction",
+                  "Spatial design",
+                  "Creative technology",
+                  "Project development",
+                  "Design research",
+                  "Studio coordination",
+                ][i]
+              }
+            </p>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}

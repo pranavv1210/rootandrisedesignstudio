@@ -12,6 +12,7 @@ import { projects, services, team, testimonials } from "@/content/site";
 import PlanVisual from "./PlanVisual";
 import ProjectMedia from "./ProjectMedia";
 import SpatialImage from "./SpatialImage";
+import TeamPortrait from "./TeamPortrait";
 
 const modes = [
   "Focus",
@@ -359,10 +360,7 @@ export default function HomeExperience() {
         </header>
         <div className="project-list">
           {projects.map((p, i) => (
-            <motion.div
-              key={p.slug}
-              className="project-wrap"
-            >
+            <motion.div key={p.slug} className="project-wrap">
               <Link href={`/work/${p.slug}`} className="project">
                 <ProjectMedia project={p} kind="hero" />
                 <div>
@@ -572,12 +570,7 @@ export default function HomeExperience() {
         <div className="team-grid">
           {team.map((n, i) => (
             <div key={n}>
-              <span>
-                {n
-                  .split(" ")
-                  .map((x) => x[0])
-                  .join("")}
-              </span>
+              <TeamPortrait name={n} />
               <h3>{n}</h3>
               <p>
                 {
@@ -599,7 +592,7 @@ export default function HomeExperience() {
       <section className="perspectives">
         <div className="wrap">
           <header>
-            <span>Client perspectives</span>
+            <span>Illustrative client perspectives</span>
             <h2>
               Trust is built in
               <br />
@@ -615,7 +608,9 @@ export default function HomeExperience() {
                 <blockquote>“{item.quote}”</blockquote>
                 <footer>
                   <strong>{item.name}</strong>
-                  <small>{item.location}</small>
+                  <small>
+                    {item.designation} / {item.location}
+                  </small>
                 </footer>
               </article>
             ))}
