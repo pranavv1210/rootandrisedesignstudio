@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   motion,
   useReducedMotion,
@@ -19,6 +20,16 @@ import PlanVisual from "./PlanVisual";
 import ProjectMedia from "./ProjectMedia";
 import SpatialImage from "./SpatialImage";
 import TeamPortrait from "./TeamPortrait";
+
+const SpatialModel = dynamic(() => import("./spatial/SpatialModel"), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="spatial-model spatial-model--loading"
+      aria-label="Loading architectural model"
+    />
+  ),
+});
 
 const modes = [
   "Focus",
@@ -147,12 +158,7 @@ export default function HomeExperience() {
           className="hero-model"
           style={{ y: modelY, rotateZ: modelRotate }}
         >
-          <div className="model-floor" />
-          <div className="model-wall wall-a" />
-          <div className="model-wall wall-b" />
-          <div className="model-block block-a" />
-          <div className="model-block block-b" />
-          <span>CONCEPT MODEL / 01</span>
+          <SpatialModel />
         </motion.div>
         <div className="hero-foot">
           <span>RR / 001</span>

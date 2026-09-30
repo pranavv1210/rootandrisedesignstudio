@@ -2947,6 +2947,267 @@ button {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
+/* Interactive architectural model */
+.spatial-model {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(245, 245, 242, 0.14);
+  background: #171918;
+  outline: none;
+  isolation: isolate;
+  touch-action: none;
+}
+.spatial-model:focus-visible {
+  border-color: rgba(226, 161, 134, 0.85);
+  box-shadow: 0 0 0 2px rgba(226, 161, 134, 0.2);
+}
+.spatial-model canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  cursor: grab;
+}
+.spatial-model canvas:active {
+  cursor: grabbing;
+}
+.spatial-model--loading {
+  background-image:
+    linear-gradient(rgba(245, 245, 242, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 242, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.spatial-model__caption {
+  position: absolute;
+  z-index: 5;
+  right: 1rem;
+  bottom: 0.85rem;
+  color: rgba(245, 245, 242, 0.58);
+  font-size: 0.45rem;
+  letter-spacing: 0.16em;
+  pointer-events: none;
+}
+.spatial-overlay {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  pointer-events: none;
+}
+.spatial-overlay button {
+  color: inherit;
+  font: inherit;
+}
+.spatial-overlay__top {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  left: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(245, 245, 242, 0.62);
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.spatial-overlay__top button {
+  padding: 0.5rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(245, 245, 242, 0.32);
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.spatial-overlay__top button:focus-visible,
+.spatial-overlay__zones button:focus-visible,
+.spatial-overlay__detail button:focus-visible {
+  outline: 1px solid var(--clay);
+  outline-offset: 3px;
+}
+.spatial-overlay__zones {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 2.5rem;
+  display: grid;
+  gap: 1px;
+  width: 118px;
+  background: rgba(245, 245, 242, 0.12);
+  pointer-events: auto;
+}
+.spatial-overlay__zones button {
+  display: grid;
+  grid-template-columns: 1.4rem 1fr;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.48rem 0.55rem;
+  border: 0;
+  background: rgba(23, 25, 24, 0.82);
+  color: rgba(245, 245, 242, 0.64);
+  text-align: left;
+  cursor: pointer;
+  backdrop-filter: blur(7px);
+}
+.spatial-overlay__zones button.active {
+  background: rgba(182, 108, 80, 0.88);
+  color: var(--paper);
+}
+.spatial-overlay__zones b {
+  color: var(--clay);
+  font-size: 0.43rem;
+}
+.spatial-overlay__zones button.active b {
+  color: var(--paper);
+}
+.spatial-overlay__zones span {
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.spatial-overlay__detail {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  width: min(280px, calc(100% - 10rem));
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(245, 245, 242, 0.18);
+  background: rgba(23, 25, 24, 0.88);
+  color: var(--paper);
+  pointer-events: auto;
+  backdrop-filter: blur(9px);
+}
+.spatial-overlay__detail > button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.55rem;
+  border: 0;
+  background: transparent;
+  color: rgba(245, 245, 242, 0.65);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.spatial-overlay__detail > span {
+  display: block;
+  color: var(--clay);
+  font-size: 0.44rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.spatial-overlay__detail strong {
+  display: block;
+  margin: 0.5rem 0;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+.spatial-overlay__detail p {
+  color: rgba(245, 245, 242, 0.68);
+  font-size: 0.64rem;
+  line-height: 1.5;
+}
+.spatial-fallback {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background-color: #171918;
+  background-image:
+    linear-gradient(rgba(245, 245, 242, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 245, 242, 0.045) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.spatial-fallback__floor {
+  position: absolute;
+  inset: 21% 12% 20%;
+  border: 1px solid rgba(245, 245, 242, 0.42);
+  background: linear-gradient(
+    130deg,
+    rgba(119, 128, 111, 0.2),
+    rgba(182, 108, 80, 0.06)
+  );
+  transform: perspective(600px) rotateX(58deg) rotateZ(-16deg);
+  box-shadow: 24px 28px 0 rgba(182, 108, 80, 0.08);
+}
+.spatial-fallback__volume,
+.spatial-fallback__glass {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(245, 245, 242, 0.42);
+}
+.spatial-fallback__volume--a {
+  inset: 29% 52% 42% 16%;
+}
+.spatial-fallback__volume--b {
+  inset: 48% 18% 22% 55%;
+  border-color: rgba(182, 108, 80, 0.72);
+}
+.spatial-fallback__volume--c {
+  inset: 57% 43% 13% 31%;
+}
+.spatial-fallback__glass--a {
+  inset: 18% 28% 29% 59%;
+  background: rgba(119, 128, 111, 0.08);
+  transform: skewY(-12deg);
+}
+.spatial-fallback__glass--b {
+  inset: 35% 61% 31% 23%;
+  background: rgba(226, 161, 134, 0.05);
+  transform: skewY(9deg);
+}
+.spatial-fallback > span {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.85rem;
+  color: rgba(245, 245, 242, 0.48);
+  font-size: 0.43rem;
+  letter-spacing: 0.13em;
+}
+@media (max-width: 960px) {
+  .hero-model {
+    width: min(58vw, 620px);
+  }
+  .spatial-overlay__zones {
+    width: 108px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-model {
+    top: 49%;
+    right: -16%;
+    width: 105vw;
+    height: 42vh;
+  }
+  .spatial-overlay__top > span {
+    display: none;
+  }
+  .spatial-overlay__zones {
+    right: 0.85rem;
+    bottom: 2.15rem;
+    left: 0.85rem;
+    grid-template-columns: repeat(3, 1fr);
+    width: auto;
+  }
+  .spatial-overlay__zones button {
+    padding: 0.42rem;
+  }
+  .spatial-overlay:has(.spatial-overlay__detail) .spatial-overlay__zones {
+    visibility: hidden;
+  }
+  .spatial-overlay__detail {
+    width: calc(100% - 1.7rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spatial-model canvas,
+  .spatial-overlay *,
+  .spatial-fallback * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
 .locations address {
   margin: -1.4rem 0 2.5rem;
   font-family: var(--display);
