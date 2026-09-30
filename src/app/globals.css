@@ -572,7 +572,9 @@ button {
 }
 .mode-scene {
   position: relative;
+  min-width: 0;
   min-height: 620px;
+  overflow: hidden;
   background: var(--ink);
   padding: 4rem;
   transition: background 0.5s;
@@ -1144,7 +1146,7 @@ button {
   gap: 1px;
   background: var(--line);
 }
-.team-grid > div,
+.team-grid > article,
 .studio-team article {
   min-height: 320px;
   padding: 2rem;
@@ -1184,12 +1186,12 @@ button {
   object-position: center 20%;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.team-grid > div:hover .team-portrait img,
+.team-grid > article:hover .team-portrait img,
 .studio-team article:hover .team-portrait img {
   transform: scale(1.035);
 }
 .team-grid h3,
-.studio-team h2 {
+.studio-team h3 {
   font-family: var(--display);
   font-size: 2rem;
   font-weight: 400;
@@ -1201,6 +1203,91 @@ button {
   font-size: 0.65rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+.team-card-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.team-card-button:focus-visible {
+  outline: 1px solid var(--clay);
+  outline-offset: 8px;
+}
+.team-card-meta {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--clay);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.team-modal {
+  position: fixed;
+  z-index: 300;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(23, 25, 24, 0.82);
+  backdrop-filter: blur(10px);
+  animation: team-modal-fade 180ms ease-out both;
+}
+.team-modal > section {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+  width: min(920px, 100%);
+  max-height: min(720px, calc(100vh - 4rem));
+  overflow: auto;
+  border: 1px solid rgba(245, 245, 242, 0.25);
+  background: var(--paper);
+  color: var(--ink);
+  animation: team-modal-enter 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes team-modal-fade { from { opacity: 0; } }
+@keyframes team-modal-enter { from { opacity: 0; transform: translateY(18px) scale(0.985); } }
+.team-modal__close {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+.team-modal__close svg { width: 17px; }
+.team-modal__close:focus-visible { outline: 2px solid var(--clay); outline-offset: 3px; }
+.team-modal__portrait { min-height: 610px; background: var(--mineral); }
+.team-modal__portrait .team-portrait { height: 100%; margin: 0; aspect-ratio: auto; }
+.team-modal__content { display: flex; flex-direction: column; padding: 4.5rem 4rem 3rem; }
+.team-modal__content > span { color: var(--clay); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.team-modal__content h2 { margin: 1.4rem 0 0.4rem; font-family: var(--display); font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 400; line-height: 0.88; }
+.team-modal__content > strong { color: var(--olive); font-size: 0.64rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.team-modal__content > p { max-width: 440px; margin: 2rem 0; color: rgba(23, 25, 24, 0.66); font-size: 0.78rem; line-height: 1.7; }
+.team-modal__content ul { margin: auto 0 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+.team-modal__content li { display: grid; grid-template-columns: 2rem 1fr; gap: 0.75rem; padding: 0.9rem 0; border-bottom: 1px solid var(--line); font-size: 0.72rem; line-height: 1.45; }
+.team-modal__content li b { color: var(--clay); font-size: 0.5rem; letter-spacing: 0.1em; }
+@media (max-width: 700px) {
+  .team-modal { align-items: end; padding: 0; }
+  .team-modal > section { grid-template-columns: 1fr; max-height: 92svh; border-inline: 0; border-bottom: 0; }
+  .team-modal__portrait { min-height: 270px; max-height: 36svh; }
+  .team-modal__content { padding: 2rem 1.5rem 2.5rem; }
+  .team-modal__content h2 { padding-right: 2.5rem; font-size: 2.8rem; }
+  .team-modal__content > p { margin: 1.2rem 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .team-modal,
+  .team-modal > section { animation: none; }
 }
 .perspectives {
   padding-block: 9rem;
@@ -3119,44 +3206,24 @@ button {
     linear-gradient(90deg, rgba(245, 245, 242, 0.045) 1px, transparent 1px);
   background-size: 42px 42px;
 }
-.spatial-fallback__floor {
+.spatial-fallback svg {
   position: absolute;
-  inset: 21% 12% 20%;
-  border: 1px solid rgba(245, 245, 242, 0.42);
-  background: linear-gradient(
-    130deg,
-    rgba(119, 128, 111, 0.2),
-    rgba(182, 108, 80, 0.06)
-  );
-  transform: perspective(600px) rotateX(58deg) rotateZ(-16deg);
-  box-shadow: 24px 28px 0 rgba(182, 108, 80, 0.08);
+  inset: 5% 5% 7%;
+  width: 90%;
+  height: 88%;
+  filter: drop-shadow(22px 30px 14px rgba(0, 0, 0, 0.34));
 }
-.spatial-fallback__volume,
-.spatial-fallback__glass {
-  position: absolute;
-  display: block;
-  border: 1px solid rgba(245, 245, 242, 0.42);
-}
-.spatial-fallback__volume--a {
-  inset: 29% 52% 42% 16%;
-}
-.spatial-fallback__volume--b {
-  inset: 48% 18% 22% 55%;
-  border-color: rgba(182, 108, 80, 0.72);
-}
-.spatial-fallback__volume--c {
-  inset: 57% 43% 13% 31%;
-}
-.spatial-fallback__glass--a {
-  inset: 18% 28% 29% 59%;
-  background: rgba(119, 128, 111, 0.08);
-  transform: skewY(-12deg);
-}
-.spatial-fallback__glass--b {
-  inset: 35% 61% 31% 23%;
-  background: rgba(226, 161, 134, 0.05);
-  transform: skewY(9deg);
-}
+.fallback-slab { fill: #d5d1c7; stroke: rgba(245, 245, 242, 0.7); stroke-width: 4; }
+.fallback-court { fill: #77806f; opacity: 0.78; }
+.fallback-wall { fill: none; stroke: #f5f3ed; stroke-width: 15; stroke-linecap: square; stroke-linejoin: miter; }
+.fallback-opening { fill: none; stroke: #b66c50; stroke-width: 4; }
+.fallback-living { fill: #6f7969; stroke: #485046; stroke-width: 2; }
+.fallback-dining { fill: #9b765d; stroke: #5c493d; stroke-width: 2; }
+.fallback-kitchen { fill: #786454; stroke: #473d35; stroke-width: 2; }
+.fallback-bedrooms { fill: #ece7db; stroke: #8f887a; stroke-width: 2; }
+.fallback-study { fill: #aa866d; stroke: #5c493d; stroke-width: 2; }
+.fallback-bath { fill: #f1eee6; stroke: #8f887a; stroke-width: 2; }
+.fallback-plants { fill: #66725c; stroke: #41493c; stroke-width: 1.5; }
 .spatial-fallback > span {
   position: absolute;
   left: 0.85rem;
@@ -3175,10 +3242,10 @@ button {
 }
 @media (max-width: 600px) {
   .hero-model {
-    top: 49%;
+    top: 64%;
     right: 0;
     width: 100vw;
-    height: 42vh;
+    height: 30vh;
   }
   .spatial-overlay__top > span {
     display: none;

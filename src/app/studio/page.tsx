@@ -1,5 +1,4 @@
-import { team, teamRoles } from "@/content/site";
-import TeamPortrait from "@/components/TeamPortrait";
+import TeamGrid from "@/components/TeamGrid";
 export default function Studio() {
   return (
     <main className="subpage">
@@ -34,15 +33,7 @@ export default function Studio() {
           </p>
         </div>
       </section>
-      <section className="studio-team wrap">
-        {team.map((n) => (
-          <article key={n}>
-            <TeamPortrait name={n} />
-            <h2>{n}</h2>
-            <p>{teamRoles[n]}</p>
-          </article>
-        ))}
-      </section>
+      <section className="studio-team wrap"><TeamGrid /></section>
     </main>
   );
 }

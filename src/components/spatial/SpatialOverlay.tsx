@@ -18,12 +18,12 @@ export default function SpatialOverlay({
       <div className="spatial-overlay__top">
         <span>Drag to explore</span>
         <button type="button" onClick={() => onCommand("reset")}>
-          Reset view
+          Reset house
         </button>
       </div>
       <div
         className="spatial-overlay__zones"
-        aria-label="Workplace spatial zones"
+        aria-label="House rooms"
       >
         {spatialZones.map((zone) => (
           <button
@@ -42,12 +42,12 @@ export default function SpatialOverlay({
         <aside className="spatial-overlay__detail" aria-live="polite">
           <button
             type="button"
-            aria-label="Close zone information"
+            aria-label="Close room information"
             onClick={() => onSelect(null)}
           >
             ×
           </button>
-          <span>{active.number} / Spatial zone</span>
+          <span>{active.number} / Room</span>
           <strong>{active.name}</strong>
           <p>{active.description}</p>
         </aside>

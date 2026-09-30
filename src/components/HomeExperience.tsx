@@ -12,14 +12,12 @@ import { useState } from "react";
 import {
   projects,
   services,
-  team,
-  teamRoles,
   testimonials,
 } from "@/content/site";
 import PlanVisual from "./PlanVisual";
 import ProjectMedia from "./ProjectMedia";
 import SpatialImage from "./SpatialImage";
-import TeamPortrait from "./TeamPortrait";
+import TeamGrid from "./TeamGrid";
 
 const SpatialModel = dynamic(() => import("./spatial/SpatialModel"), {
   ssr: false,
@@ -576,13 +574,7 @@ export default function HomeExperience() {
           </h2>
         </header>
         <div className="team-grid">
-          {team.map((n) => (
-            <div key={n}>
-              <TeamPortrait name={n} />
-              <h3>{n}</h3>
-              <p>{teamRoles[n]}</p>
-            </div>
-          ))}
+          <TeamGrid />
         </div>
       </section>
 

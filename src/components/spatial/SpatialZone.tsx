@@ -9,11 +9,7 @@ type SpatialZoneProps = {
   onSelect: (id: ZoneId) => void;
 };
 
-export default function SpatialZone({
-  zone,
-  active,
-  onSelect,
-}: SpatialZoneProps) {
+export default function SpatialZone({ zone, active, onSelect }: SpatialZoneProps) {
   const [hovered, setHovered] = useState(false);
   const highlighted = active || hovered;
   const handlePointer = (event: ThreeEvent<PointerEvent>, value: boolean) => {
@@ -23,35 +19,15 @@ export default function SpatialZone({
   };
 
   return (
-    <group position={zone.position}>
-      <mesh
-        onPointerOver={(event) => handlePointer(event, true)}
-        onPointerOut={(event) => handlePointer(event, false)}
-        onClick={(event) => {
-          event.stopPropagation();
-          onSelect(zone.id);
-        }}
-      >
-        <boxGeometry args={zone.size} />
-        <meshStandardMaterial
-          color={zone.color}
-          roughness={0.78}
-          metalness={0.08}
-          emissive={zone.color}
-          emissiveIntensity={highlighted ? 0.16 : 0}
-          transparent
-          opacity={highlighted ? 0.96 : 0.82}
-        />
-        <Edges color={highlighted ? "#e2a186" : "#d4d2c9"} threshold={15} />
-      </mesh>
-      <mesh position={[0, zone.size[1] / 2 + 0.1, 0]}>
-        <boxGeometry args={[zone.size[0] * 0.54, 0.08, zone.size[2] * 0.44]} />
-        <meshStandardMaterial color="#b9aa90" roughness={0.75} />
-      </mesh>
-      <mesh position={[0, zone.size[1] / 2 + 0.32, 0]}>
-        <cylinderGeometry args={[0.23, 0.28, 0.42, 12]} />
-        <meshStandardMaterial color="#262926" roughness={0.85} />
-      </mesh>
-    </group>
+    <mesh
+      position={zone.position}
+      onPointerOver={(event) => handlePointer(event, true)}
+      onPointerOut={(event) => handlePointer(event, false)}
+      onClick={(event) => { event.stopPropagation(); onSelect(zone.id); }}
+    >
+      <boxGeometry args={[zone.size[0], 0.055, zone.size[1]]} />
+      <meshStandardMaterial color={active ? "#d69273" : "#d9cdbb"} transparent opacity={active ? 0.32 : hovered ? 0.16 : 0.002} roughness={0.8} depthWrite={false} />
+      {highlighted && <Edges color={active ? "#e4a184" : "#c7a184"} threshold={15} />}
+    </mesh>
   );
 }

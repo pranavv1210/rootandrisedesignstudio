@@ -55,6 +55,9 @@ export const projectMediaPaths: Record<
   },
 };
 
+// Add a project slug only after film.webm or film.mp4 exists in its public folder.
+export const projectFilmSlugs = new Set<string>();
+
 export const mediaSpecs: MediaSpec[] = [
   {
     slug: "private-residence",

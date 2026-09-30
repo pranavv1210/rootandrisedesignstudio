@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import PlanVisual from "./PlanVisual";
 import type { Project } from "@/content/site";
-import { mediaPath, projectMediaPath, type ProjectMediaKind } from "@/content/media";
+import { mediaPath, projectFilmSlugs, projectMediaPath, type ProjectMediaKind } from "@/content/media";
 
 type ProjectMediaProps = {
   project: Project;
@@ -24,6 +24,7 @@ export default function ProjectMedia({ project, kind = "hero", video = false, pr
   const [imageFailed, setImageFailed] = useState(!poster);
   const [videoFailed, setVideoFailed] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
+  const hasVideo = video && projectFilmSlugs.has(project.slug);
 
   return (
     <motion.div ref={frameRef} className={`media-frame media-frame--${kind}`}>
@@ -41,7 +42,7 @@ export default function ProjectMedia({ project, kind = "hero", video = false, pr
         </motion.div>
       )}
       {imageFailed && <PlanVisual project={project} />}
-      {video && !videoFailed && (
+      {hasVideo && !videoFailed && (
         <video className={videoReady ? "is-ready" : ""} muted autoPlay loop playsInline preload="metadata" poster={poster ?? undefined} onCanPlay={() => setVideoReady(true)} onError={() => setVideoFailed(true)}>
           <source src={mediaPath(project.slug, "film.webm")} type="video/webm" />
           <source src={mediaPath(project.slug, "film.mp4")} type="video/mp4" />
@@ -49,7 +50,7 @@ export default function ProjectMedia({ project, kind = "hero", video = false, pr
       )}
       <div className="media-frame__shade" />
       <span>{project.type} / {project.place}</span>
-      <b>{video && videoFailed ? "FILM PLACEHOLDER" : project.status}</b>
+      <b>{hasVideo && videoFailed ? "FILM UNAVAILABLE" : project.status}</b>
     </motion.div>
   );
 }

@@ -91,11 +91,12 @@ export default function SpatialModel() {
       tabIndex={0}
       onKeyDown={handleKeyDown}
       onContextMenu={(event) => event.preventDefault()}
-      aria-label="Interactive architectural workplace model. Use arrow keys to rotate, plus and minus to zoom, R to reset, and Escape to close zone details."
+      aria-label="Interactive furnished architectural house. Drag to rotate, scroll or pinch to zoom, select a room to focus, use arrow keys to rotate, plus and minus to zoom, R to reset, and Escape to close room details."
     >
       {webgl === true ? (
         <CanvasBoundary fallback={fallback}>
           <Canvas
+            shadows
             camera={{ position: [8.6, 7.2, 9.4], fov: 36, near: 0.1, far: 100 }}
             dpr={[1, 1.5]}
             gl={{
@@ -124,7 +125,7 @@ export default function SpatialModel() {
         onSelect={setSelected}
         onCommand={issueCommand}
       />
-      <span className="spatial-model__caption">CONCEPT MODEL / 01</span>
+      <span className="spatial-model__caption">CUTAWAY HOUSE / 01</span>
     </div>
   );
 }

@@ -1,5 +1,4 @@
-export type ZoneId =
-  "focus" | "collaborate" | "social" | "meeting" | "executive" | "hybrid";
+export type ZoneId = "entry" | "living" | "dining" | "kitchen" | "primary" | "bedroom" | "study" | "bathroom" | "courtyard";
 
 export type SpatialZoneData = {
   id: ZoneId;
@@ -7,65 +6,18 @@ export type SpatialZoneData = {
   name: string;
   description: string;
   position: [number, number, number];
-  size: [number, number, number];
-  color: string;
+  size: [number, number];
+  cameraOffset: [number, number, number];
 };
 
 export const spatialZones: SpatialZoneData[] = [
-  {
-    id: "focus",
-    number: "01",
-    name: "Focus",
-    description: "Quiet environments designed for uninterrupted work.",
-    position: [-2.5, 0.35, -1.55],
-    size: [2.25, 0.7, 1.65],
-    color: "#77806f",
-  },
-  {
-    id: "collaborate",
-    number: "02",
-    name: "Collaborate",
-    description:
-      "Spaces designed for shared thinking, project work and exchange.",
-    position: [0, 0.25, -1.55],
-    size: [2.15, 0.5, 1.65],
-    color: "#a96750",
-  },
-  {
-    id: "social",
-    number: "03",
-    name: "Social",
-    description:
-      "Informal environments for connection, breaks and conversation.",
-    position: [2.45, 0.2, -1.45],
-    size: [2.05, 0.4, 1.85],
-    color: "#8a765e",
-  },
-  {
-    id: "meeting",
-    number: "04",
-    name: "Meeting",
-    description: "Technology-enabled spaces for structured collaboration.",
-    position: [-2.3, 0.45, 1.25],
-    size: [2.55, 0.9, 1.8],
-    color: "#9a9d90",
-  },
-  {
-    id: "executive",
-    number: "05",
-    name: "Executive",
-    description: "Private environments for leadership, focus and conversation.",
-    position: [0.45, 0.55, 1.35],
-    size: [2.25, 1.1, 1.75],
-    color: "#6c6f65",
-  },
-  {
-    id: "hybrid",
-    number: "06",
-    name: "Hybrid",
-    description: "Flexible environments supporting multiple ways of working.",
-    position: [2.75, 0.32, 1.25],
-    size: [1.8, 0.64, 1.8],
-    color: "#b66c50",
-  },
+  { id: "entry", number: "01", name: "Entry", description: "A calm threshold that creates a clear transition from arrival to home.", position: [4.55, 0.08, 2.8], size: [1.7, 2.15], cameraOffset: [4.8, 4.4, 5.2] },
+  { id: "living", number: "02", name: "Living room", description: "A shared environment designed around conversation, comfort and connection.", position: [-3.65, 0.08, 1.55], size: [3.55, 4.55], cameraOffset: [4.8, 4.2, 5.4] },
+  { id: "dining", number: "03", name: "Dining", description: "A warm gathering space positioned between daily living and the kitchen.", position: [-0.8, 0.08, 1.55], size: [2.15, 3.2], cameraOffset: [4.5, 4.2, 5.1] },
+  { id: "kitchen", number: "04", name: "Kitchen", description: "A practical social core designed around movement, preparation and gathering.", position: [2.05, 0.08, 1.45], size: [3.45, 3.35], cameraOffset: [4.6, 4.3, 5.2] },
+  { id: "primary", number: "05", name: "Primary bedroom", description: "A quieter private environment designed for rest, retreat and soft morning light.", position: [-3.8, 0.08, -2.2], size: [3.35, 3.35], cameraOffset: [4.7, 4.2, 5] },
+  { id: "bedroom", number: "06", name: "Second bedroom", description: "A flexible bedroom with integrated storage, study and reading space.", position: [-1.05, 0.08, -2.2], size: [2.15, 3.35], cameraOffset: [4.5, 4.1, 5] },
+  { id: "bathroom", number: "07", name: "Bathroom", description: "A compact, naturally toned bathroom organised into dry and wet zones.", position: [0.75, 0.08, -2.3], size: [1.4, 3.05], cameraOffset: [4.2, 4.1, 4.8] },
+  { id: "study", number: "08", name: "Study", description: "A focused environment for uninterrupted work, reading and reflection.", position: [2.55, 0.08, -2.2], size: [2.05, 3.35], cameraOffset: [4.3, 4.1, 4.9] },
+  { id: "courtyard", number: "09", name: "Courtyard", description: "A planted outdoor room that brings daylight, air and pause into the plan.", position: [4.55, 0.08, -2.2], size: [1.65, 3.35], cameraOffset: [4.5, 4.3, 5] },
 ];

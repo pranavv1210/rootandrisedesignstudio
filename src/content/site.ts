@@ -149,11 +149,24 @@ export const team = [
 export const teamRoles: Record<(typeof team)[number], string> = {
   "Naga Sri Vandanapu": "Account Manager",
   "Suhas R": "Business Analyst",
-  "Pranav V": "Solution Architect",
+  "Pranav V": "Solutions Architect",
   "Dinesh Kumar": "Design Specialist",
   "Santhiya C": "Project Manager",
   "Sai Srija": "Quality Reviewer",
 };
+const teamResponsibilities: Record<(typeof team)[number], readonly string[]> = {
+    "Naga Sri Vandanapu": ["Client relationship", "Business and client communication", "Overall account coordination"],
+    "Suhas R": ["Understands requirements", "Business and workplace analysis", "Converts client needs into structured requirements"],
+    "Pranav V": ["Converts requirements into practical solutions", "Defines functional and technology strategy", "Bridges business requirements and design", "Works closely with the Design Specialist"],
+    "Dinesh Kumar": ["Spatial and design concepts", "Visual and architectural design", "Material, layout and experience decisions"],
+    "Santhiya C": ["Coordinates execution", "Timeline, tasks, dependencies and delivery", "Keeps different teams aligned"],
+    "Sai Srija": ["Reviews the final work", "Checks quality, consistency and requirements", "Identifies issues before delivery"],
+};
+export const teamProfiles = team.map((name) => ({
+  name,
+  role: teamRoles[name],
+  responsibilities: teamResponsibilities[name],
+}));
 
 export const testimonials = [
   {
