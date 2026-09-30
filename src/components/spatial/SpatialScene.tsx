@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { MathUtils, Vector3, type Group } from "three";
@@ -32,7 +32,21 @@ export default function SpatialScene({
   const reveal = useRef(reducedMotion ? 1 : 0);
   const idleTimer = useRef<ReturnType<typeof setTimeout>>();
   const [autoRotate, setAutoRotate] = useState(false);
-  const { camera } = useThree();
+  const { camera, size } = useThree();
+  const homeCamera = useMemo(
+    () =>
+      size.width < 600 ? new Vector3(11.4, 8.8, 12.2) : initialCamera.clone(),
+    [size.width],
+  );
+
+  useEffect(() => {
+    camera.position.copy(homeCamera);
+    if ("isPerspectiveCamera" in camera && camera.isPerspectiveCamera) {
+      camera.fov = size.width < 600 ? 46 : 36;
+      camera.updateProjectionMatrix();
+    }
+    controls.current?.update();
+  }, [camera, homeCamera, size.width]);
 
   const stopAutoRotate = () => {
     setAutoRotate(false);
@@ -88,11 +102,11 @@ export default function SpatialScene({
       modelGroup.current.scale.setScalar(MathUtils.lerp(0.94, 1, eased));
     }
     if (!resetTarget.current || !controls.current) return;
-    camera.position.lerp(initialCamera, 0.09);
+    camera.position.lerp(homeCamera, 0.09);
     controls.current.target.lerp(new Vector3(0, 0, 0), 0.09);
     controls.current.update();
-    if (camera.position.distanceTo(initialCamera) < 0.03) {
-      camera.position.copy(initialCamera);
+    if (camera.position.distanceTo(homeCamera) < 0.03) {
+      camera.position.copy(homeCamera);
       resetTarget.current = false;
       scheduleAutoRotate();
     }

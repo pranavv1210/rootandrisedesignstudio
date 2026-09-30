@@ -3176,8 +3176,8 @@ button {
 @media (max-width: 600px) {
   .hero-model {
     top: 49%;
-    right: -16%;
-    width: 105vw;
+    right: 0;
+    width: 100vw;
     height: 42vh;
   }
   .spatial-overlay__top > span {

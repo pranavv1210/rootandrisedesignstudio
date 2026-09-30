@@ -74,7 +74,6 @@ export default function HomeExperience() {
   const score = answers.reduce((a, b) => a + b, 0);
   const { scrollYProgress } = useScroll();
   const modelY = useTransform(scrollYProgress, [0, 0.14], [0, 180]);
-  const modelRotate = useTransform(scrollYProgress, [0, 0.14], [-6, 8]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
   return (
     <main>
@@ -154,10 +153,7 @@ export default function HomeExperience() {
             </Link>
           </div>
         </motion.div>
-        <motion.div
-          className="hero-model"
-          style={{ y: modelY, rotateZ: modelRotate }}
-        >
+        <motion.div className="hero-model" style={{ y: modelY }}>
           <SpatialModel />
         </motion.div>
         <div className="hero-foot">
