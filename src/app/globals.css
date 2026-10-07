@@ -81,8 +81,9 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 1.15rem 3rem;
-  border-bottom: 1px solid var(--line);
-  background: rgba(245, 245, 242, 0.9);
+  color: var(--paper);
+  border-bottom: 1px solid var(--night-line);
+  background: rgba(23, 25, 24, 0.9);
   backdrop-filter: blur(16px);
 }
 .nav--home {
@@ -1524,6 +1525,8 @@ button {
 .subpage,
 .case {
   padding-top: 7rem;
+  background: var(--ink);
+  color: var(--paper);
 }
 .page-head {
   display: grid;
@@ -3326,8 +3329,8 @@ button {
   height: 75vh;
   opacity: 0.5;
   background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    linear-gradient(var(--night-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--night-line) 1px, transparent 1px);
   background-size: 6.25vw 6.25vw;
   mask-image: linear-gradient(#000, transparent);
 }
@@ -3345,6 +3348,71 @@ button {
 }
 .page-head {
   position: relative;
+}
+
+/* Secondary pages share the landing page's charcoal studio palette. */
+.subpage .page-head p,
+.subpage .work-archive p,
+.subpage .studio-story p,
+.subpage .journal p,
+.case .case-head p,
+.case .case-story p {
+  color: rgba(245, 245, 242, 0.64);
+}
+.subpage .approach-map,
+.subpage .team-grid,
+.subpage .studio-team,
+.subpage .testimonial-grid {
+  background: var(--night-line);
+}
+.subpage .approach-map > div,
+.subpage .team-grid > article,
+.subpage .studio-team article,
+.subpage .testimonial-grid article {
+  background: #202320;
+}
+.subpage .approach-map > div:hover,
+.subpage .studio-team article:hover,
+.subpage .testimonial-grid article:hover {
+  background: #2a2e29;
+}
+.subpage .approach-map p,
+.subpage .testimonial-grid footer small {
+  color: rgba(245, 245, 242, 0.58);
+}
+.subpage .team-portrait {
+  background: #2a2e29;
+}
+.subpage .journal-drawing {
+  background: #242824;
+}
+.subpage .journal-drawing i {
+  border-color: rgba(245, 245, 242, 0.6);
+}
+.subpage .journal-drawing i:nth-child(2) {
+  border-color: var(--clay);
+}
+.subpage .testimonial-grid footer,
+.case .case-head dl > div,
+.case .case-story > div {
+  border-color: var(--night-line);
+}
+.subpage .contact-form input,
+.subpage .contact-form textarea,
+.subpage .contact-form select {
+  border-color: var(--night-line);
+  color: var(--paper);
+}
+.subpage .contact-form select option {
+  background: var(--ink);
+  color: var(--paper);
+}
+.subpage .contact-form > button {
+  border-color: var(--clay);
+  background: var(--clay);
+}
+.subpage .form-success {
+  background: #242824;
 }
 .approach-map > div,
 .studio-team article,
