@@ -1,0 +1,99 @@
+{
+  "units": "meters",
+  "source": "TATTVA_MASTERPLAN.json",
+  "buildings": [
+    {
+      "id": "technology",
+      "file": "technology.glb",
+      "levels": 3,
+      "program": [
+        "Technology 90",
+        "AI & Data 35",
+        "Product / UX 30",
+        "Research 10",
+        "Lab",
+        "Demo",
+        "Collaboration"
+      ]
+    },
+    {
+      "id": "client_centre",
+      "file": "client_centre.glb",
+      "levels": 2,
+      "program": [
+        "Reception",
+        "Waiting",
+        "Boardroom",
+        "Client Meeting",
+        "Demo",
+        "Showcase",
+        "Executive Meeting"
+      ]
+    },
+    {
+      "id": "business",
+      "file": "business.glb",
+      "levels": 3,
+      "program": [
+        "Sales 30",
+        "Marketing 20",
+        "Customer Success 25",
+        "Meeting",
+        "Focus",
+        "Breakout"
+      ]
+    },
+    {
+      "id": "administration",
+      "file": "administration.glb",
+      "levels": 2,
+      "program": [
+        "HR 12",
+        "Finance 10",
+        "Operations 18",
+        "Records",
+        "Focus",
+        "Meeting"
+      ]
+    },
+    {
+      "id": "wellness",
+      "file": "wellness.glb",
+      "levels": 2,
+      "program": [
+        "Compact Fitness",
+        "Yoga",
+        "Meditation",
+        "Therapy",
+        "Recovery",
+        "Consultation",
+        "Changing"
+      ]
+    },
+    {
+      "id": "cafeteria",
+      "file": "cafeteria.glb",
+      "levels": 2,
+      "program": [
+        "Dining Hall",
+        "Kitchen",
+        "Social",
+        "Outdoor Seating",
+        "Service",
+        "Staff"
+      ]
+    },
+    {
+      "id": "recreation",
+      "file": "recreation.glb",
+      "levels": 1,
+      "program": [
+        "Indoor Games",
+        "Multipurpose",
+        "Outdoor Court",
+        "Lawn",
+        "Support"
+      ]
+    }
+  ]
+}

@@ -90,6 +90,16 @@ button {
   border-color: var(--night-line);
   background: rgba(23, 25, 24, 0.72);
 }
+.nav nav a[href="/demo"] {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid currentColor;
+  color: var(--clay);
+}
+.nav nav a[href="/demo"].active {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: var(--paper);
+}
 .brand {
   display: flex;
   align-items: center;
@@ -3288,6 +3298,23 @@ button {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+}
+.demo-page {
+  height: 100svh;
+  padding-top: 75px;
+  overflow: hidden;
+  background: var(--ink);
+}
+.demo-page iframe {
+  display: block;
+  width: 100%;
+  height: calc(100svh - 75px);
+  border: 0;
+  background: #a8aa93;
+}
+@media (max-width: 960px) {
+  .demo-page { padding-top: 67px; }
+  .demo-page iframe { height: calc(100svh - 67px); }
 }
 .subpage::before {
   content: "";

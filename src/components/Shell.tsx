@@ -22,6 +22,7 @@ const nav = [
   ["Studio", "/studio"],
   ["Journal", "/journal"],
   ["Contact", "/contact"],
+  ["3D Demo", "/demo"],
 ];
 const deck = [
   {

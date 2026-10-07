@@ -36,3 +36,7 @@ Team images live in `public/team/` and use these filenames:
 Each team card opens a responsive profile modal. If an image cannot load, the site displays the member's initials instead.
 
 Project films use `public/projects/<project-slug>/film.webm` (preferred) and/or `film.mp4`. After adding a film, add its slug to `projectFilmSlugs` in `src/content/media.ts`; unavailable films are not requested or repeated.
+
+## 3D campus demo
+
+The header's **3D Demo** link opens `/demo`, which embeds the self-contained TATTVA Zencore campus walkthrough. Its runtime and GLB assets are stored in `public/zencore/`, so the production demo does not depend on third-party script CDNs.
