@@ -195,6 +195,24 @@ export default function Shell({ children }: { children: React.ReactNode }) {
     }, 600);
   };
   const current = deck[slide];
+  if (path === "/demo") {
+    return (
+      <>
+        <Link className="demo-back" href="/" aria-label="Back to Root and Rise home">
+          <ArrowLeft />
+          <span>Back to website</span>
+        </Link>
+        <motion.div
+          key={path}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45 }}
+        >
+          {children}
+        </motion.div>
+      </>
+    );
+  }
   return (
     <>
       <header className={`nav ${path === "/" ? "nav--home" : ""}`}>
